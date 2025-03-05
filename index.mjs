@@ -24,13 +24,17 @@ app.get('/hola', (req, res) => {
 })
 
 // Renderizar una plantilla
-app.get('/', (req, res) => {
-	res.render("index.html", { saludado: 'Pepito' })  // Carga views/index.html
+app.get('/bootstrap', (req, res) => {
+	res.render("index-bootstrap.njk", { title: "Inicio Bootstrap" })  
+})
+
+app.get('/tailwind', (req, res) => {
+	res.render("index-tailwind.njk", { title: "Inicio TailwindCSS" })  
 })
 
 // Middleware para manejar rutas no encontradas
 app.use((req, res) => {
-	res.status(404).send("Página no encontrada 🏛️")
+	res.status(404).send("Página no encontrada 🎬")
 })
 
 // Iniciar el servidor

@@ -1,0 +1,75 @@
+{% extends "base-tailwind.njk" %}
+
+{% block contenido %}
+  <div class="container mx-auto mt-10">
+    <div class="text-center">
+      <h1 class="text-6xl font-extrabold text-gray-900 animate-bounce">Bienvenido a Movie Hub 🎬</h1>
+      <p class="text-2xl text-gray-700 mt-6">Explora nuestra colección de películas y series.</p>
+      <a href="#" class="mt-8 inline-block bg-gradient-to-r from-blue-500 to-purple-600 text-white px-10 py-5 rounded-full text-2xl shadow-xl transform hover:scale-110 transition duration-300">Ver Ahora</a>
+    </div>
+    <div class="mt-12 flex justify-center">
+      <div class="relative w-full max-w-xl">
+        <input type="text" class="w-full px-8 py-4 border border-gray-300 rounded-full focus:outline-none focus:ring-4 focus:ring-blue-600" placeholder="Buscar películas o series...">
+        <button class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-3 rounded-full hover:bg-blue-700 transition duration-300">Buscar</button>
+      </div>
+    </div>
+    <div class="mt-12">
+      <h2 class="text-4xl font-bold text-gray-900">Películas Populares</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mt-6">
+        <div class="bg-white shadow-2xl rounded-lg overflow-hidden transform hover:scale-110 transition duration-300">
+          <img src="path/to/movie1.jpg" alt="..." class="w-full h-64 object-cover">
+          <div class="p-6">
+            <h5 class="text-3xl font-bold">Título de la Película 1</h5>
+            <p class="text-gray-700 mt-4">Descripción breve de la película 1.</p>
+            <a href="#" class="mt-6 inline-block bg-gradient-to-r from-gray-800 to-gray-900 text-white px-6 py-3 rounded-full">Ver más</a>
+          </div>
+        </div>
+        <div class="bg-white shadow-2xl rounded-lg overflow-hidden transform hover:scale-110 transition duration-300">
+          <img src="path/to/movie2.jpg" alt="..." class="w-full h-64 object-cover">
+          <div class="p-6">
+            <h5 class="text-3xl font-bold">Título de la Película 2</h5>
+            <p class="text-gray-700 mt-4">Descripción breve de la película 2.</p>
+            <a href="#" class="mt-6 inline-block bg-gradient-to-r from-gray-800 to-gray-900 text-white px-6 py-3 rounded-full">Ver más</a>
+          </div>
+        </div>
+        <div class="bg-white shadow-2xl rounded-lg overflow-hidden transform hover:scale-110 transition duration-300">
+          <img src="path/to/movie3.jpg" alt="..." class="w-full h-64 object-cover">
+          <div class="p-6">
+            <h5 class="text-3xl font-bold">Título de la Película 3</h5>
+            <p class="text-gray-700 mt-4">Descripción breve de la película 3.</p>
+            <a href="#" class="mt-6 inline-block bg-gradient-to-r from-gray-800 to-gray-900 text-white px-6 py-3 rounded-full">Ver más</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mt-12">
+      <h2 class="text-4xl font-bold text-gray-900">Series Populares</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mt-6">
+        <div class="bg-white shadow-2xl rounded-lg overflow-hidden transform hover:scale-110 transition duration-300">
+          <img src="path/to/series1.jpg" alt="..." class="w-full h-64 object-cover">
+          <div class="p-6">
+            <h5 class="text-3xl font-bold">Título de la Serie 1</h5>
+            <p class="text-gray-700 mt-4">Descripción breve de la serie 1.</p>
+            <a href="#" class="mt-6 inline-block bg-gradient-to-r from-gray-800 to-gray-900 text-white px-6 py-3 rounded-full">Ver más</a>
+          </div>
+        </div>
+        <div class="bg-white shadow-2xl rounded-lg overflow-hidden transform hover:scale-110 transition duration-300">
+          <img src="path/to/series2.jpg" alt="..." class="w-full h-64 object-cover">
+          <div class="p-6">
+            <h5 class="text-3xl font-bold">Título de la Serie 2</h5>
+            <p class="text-gray-700 mt-4">Descripción breve de la serie 2.</p>
+            <a href="#" class="mt-6 inline-block bg-gradient-to-r from-gray-800 to-gray-900 text-white px-6 py-3 rounded-full">Ver más</a>
+          </div>
+        </div>
+        <div class="bg-white shadow-2xl rounded-lg overflow-hidden transform hover:scale-110 transition duration-300">
+          <img src="path/to/series3.jpg" alt="..." class="w-full h-64 object-cover">
+          <div class="p-6">
+            <h5 class="text-3xl font-bold">Título de la Serie 3</h5>
+            <p class="text-gray-700 mt-4">Descripción breve de la serie 3.</p>
+            <a href="#" class="mt-6 inline-block bg-gradient-to-r from-gray-800 to-gray-900 text-white px-6 py-3 rounded-full">Ver más</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

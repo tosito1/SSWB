@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Movie Hub</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .fade-in {
+      animation: fadeIn 2s ease-in-out;
+    }
+  </style>
+</head>
+<body class="bg-gray-100" data-aos-easing="ease" data-aos-duration="400" data-aos-delay="0">
+
+  <nav class="bg-gray-900 p-4 shadow-lg">
+    <div class="container mx-auto flex justify-between items-center">
+      <a class="text-white text-2xl font-bold" href="/">🎬 Movie Hub</a>
+      <div class="space-x-4">
+        <a href="#" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-lg font-medium">Inicio</a>
+        <a href="#" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-lg font-medium">Películas</a>
+        <a href="#" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-lg font-medium">Series</a>
+        <a href="#" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-lg font-medium">Contacto</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="bg-cover bg-center h-screen fade-in" style="background-image: url('path/to/hero-image.jpg');">
+    <div class="container mx-auto h-full flex items-center justify-center text-center">
+      <div class="bg-black bg-opacity-50 p-10 rounded-lg animate__animated animate__fadeInDown">
+        <h1 class="text-6xl font-extrabold text-white">Bienvenido a Movie Hub 🎬</h1>
+        <p class="text-2xl text-gray-300 mt-6">Explora nuestra colección de películas y series.</p>
+        <a href="#" class="mt-8 inline-block bg-gradient-to-r from-blue-500 to-purple-600 text-white px-10 py-5 rounded-full text-2xl shadow-xl transform hover:scale-110 transition duration-300 animate__animated animate__pulse">Ver Ahora</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="container mx-auto mt-12 px-4">
+    {% block contenido %}
+    {% endblock %}
+  </div>
+
+  <footer class="bg-gray-900 text-white text-center py-6 mt-12">
+    <div class="container mx-auto">
+      <p>&copy; 2024 Movie Hub. Todos los derechos reservados.</p>
+      <div class="mt-4">
+        <a href="#" class="text-gray-400 hover:text-white mx-2">Términos de Servicio</a>
+        <a href="#" class="text-gray-400 hover:text-white mx-2">Política de Privacidad</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    AOS.init();
+  </script>
+</body>
+</html>

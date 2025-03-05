@@ -26,7 +26,7 @@
 | #  | Fecha  | Tema                        | Tarea                                    | Estado     |
 |----|--------|-----------------------------|------------------------------------------|------------|
 | 0  | 20 Feb | Introducción                 | Configuración inicial con Node.js, Express y Nunjucks | ✅ Completado |
-| 1  | 27 Feb | JavaScript ES6               | Landing Page con Plantillas             | ⏳ En progreso |
+| 1  | 27 Feb | JavaScript ES6               | Landing Page con Plantillas             | ✅ Completado |
 | 2  | 6 Mar  | Bases de Datos, ORMs         | Web Scraping                            | 🔜 Pendiente |
 | 3  | 13 Mar | HTTP, WebSockets             | Base de Datos de desarrollo             | 🔜 Pendiente |
 | 4  | 20 Mar | Testing                      | Página de Resultados                    | 🔜 Pendiente |
