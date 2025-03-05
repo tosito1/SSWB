@@ -49,5 +49,4 @@
 
 ### **1️⃣ Clonar el repositorio**  
 ```sh
-git clone https://github.com/tu-usuario/museo-web.git
-cd museo-web
+git clone https://github.com/tosito1/SSWB/
