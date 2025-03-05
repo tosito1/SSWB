@@ -3,13 +3,15 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "node --watch index.mjs"
+    "dev": "node --watch index.mjs",
+    "build:css": "postcss styles/tailwind.css -o public/styles/tailwind.css"
   },
   "keywords": [],
   "author": "Antonio José Muriel Gálvez",
   "license": "ISC",
   "description": "![Node.js](https://img.shields.io/badge/Node.js-23-green?logo=node.js)  \r ![Express](https://img.shields.io/badge/Express.js-4.21-blue?logo=express)  \r ![Nunjucks](https://img.shields.io/badge/Nunjucks-3.2-yellow?logo=nunjucks)  \r ![Status](https://img.shields.io/badge/Estado-En%20Desarrollo-orange)",
   "dependencies": {
+    "@tailwindcss/vite": "^4.0.9",
     "chokidar": "^3.6.0",
     "express": "^4.21.2",
     "nunjucks": "^3.2.4"
