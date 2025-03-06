@@ -28,7 +28,7 @@ app.get('/bootstrap', (req, res) => {
 	res.render("index-bootstrap.njk", { title: "Inicio Bootstrap" })  
 })
 
-app.get('/tailwind', (req, res) => {
+app.get('/', (req, res) => {
 	res.render("index-tailwind.njk", { title: "Inicio TailwindCSS" })  
 })
 
