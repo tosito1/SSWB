@@ -1,0 +1,131 @@
+{% extends "base.njk" %}
+
+{% block content %}
+<!-- Cabecera de la página -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="display-4 mb-3">{{ obra.titulo }}</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center">
+                        <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+                        <li class="breadcrumb-item"><a href="/colecciones">Colecciones</a></li>
+                        <li class="breadcrumb-item"><a href="/obras-singulares">Obras Singulares</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ obra.titulo }}</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Detalle de la obra -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mb-4 mb-md-0">
+                {% if obra.imagen %}
+                <div class="gallery-item">
+                    <img src="{{ obra.imagen }}" class="img-fluid rounded shadow" alt="{{ obra.titulo }}">
+                    <div class="overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                {% else %}
+                <div class="bg-light d-flex align-items-center justify-content-center rounded shadow" style="height: 400px;">
+                    <i class="fas fa-image fa-5x text-muted"></i>
+                </div>
+                {% endif %}
+            </div>
+            <div class="col-md-6">
+                <h2 class="mb-4">{{ obra.titulo }}</h2>
+                
+                {% if obra.descripcion %}
+                <div class="mb-4">
+                    <h3 class="h5 text-primary">Descripción</h3>
+                    <p>{{ obra.descripcion }}</p>
+                </div>
+                {% endif %}
+                
+                {% if obra.procedencia %}
+                <div class="mb-4">
+                    <h3 class="h5 text-primary">Procedencia</h3>
+                    <p>{{ obra.procedencia }}</p>
+                </div>
+                {% endif %}
+                
+                {% if obra.comentarios %}
+                <div class="mb-4">
+                    <h3 class="h5 text-primary">Comentarios</h3>
+                    <p>{{ obra.comentarios }}</p>
+                </div>
+                {% endif %}
+                
+                <div class="mb-4">
+                    <h3 class="h5 text-primary">Enlace al sitio oficial</h3>
+                    <a href="{{ obra.url }}" class="btn btn-outline-primary" target="_blank">
+                        <i class="fas fa-external-link-alt me-2"></i>Ver en el sitio oficial del museo
+                    </a>
+                </div>
+                
+                <div class="d-flex justify-content-between mt-5">
+                    <a href="/obras-singulares" class="btn btn-outline-secondary">
+                        <i class="fas fa-arrow-left me-2"></i>Volver a obras singulares
+                    </a>
+                    <div class="social-share">
+                        <span class="me-2">Compartir:</span>
+                        <a href="#" class="me-2" title="Compartir en Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="me-2" title="Compartir en Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" title="Compartir por correo"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Obras relacionadas -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="section-title text-center mb-4">Obras relacionadas</h2>
+        <div class="row">
+            {% for i in range(1, 4) %}
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-img-top bg-secondary" style="height: 200px;"></div>
+                    <div class="card-body">
+                        <h3 class="card-title">Obra relacionada {{ i }}</h3>
+                        <p class="card-text">Descripción breve de la obra relacionada.</p>
+                        <a href="#" class="btn btn-outline-primary mt-2">Ver detalle</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Información adicional -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="section-title text-center mb-4">Visita nuestro museo</h2>
+                <p class="text-center">Descubre esta y otras obras singulares en el Museo Arqueológico y Etnológico de Granada. Te invitamos a conocer nuestra colección completa y disfrutar de una experiencia cultural única.</p>
+                <div class="text-center mt-4">
+                    <a href="/reserva" class="btn btn-primary">Reserva tu visita</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Código específico para la página de detalle si es necesario
+    });
+</script>
+{% endblock %} 

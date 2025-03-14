@@ -1,52 +1,67 @@
-# SSWB
+# Museo Arqueológico de Granada - Proyecto Web
 
-# 🏛️ Museo Web - Sistemas Software Basados en Web  
+Este proyecto es una recreación del sitio web del Museo Arqueológico y Etnológico de Granada, desarrollado como parte de las prácticas de la asignatura de Sistemas Software Basados en Web (SSBW).
 
-![Node.js](https://img.shields.io/badge/Node.js-23-green?logo=node.js)  
-![Express](https://img.shields.io/badge/Express.js-4.21-blue?logo=express)  
-![Nunjucks](https://img.shields.io/badge/Nunjucks-3.2-yellow?logo=nunjucks)  
-![Status](https://img.shields.io/badge/Estado-En%20Desarrollo-orange)  
+## Descripción
 
-> Proyecto para la asignatura **Sistemas Software Basados en Web**, donde crearemos una web para el **Museo Arqueológico de Granada**, pasando por distintas fases y tecnologías.
+El proyecto consiste en una aplicación web que muestra información sobre el Museo Arqueológico de Granada, incluyendo sus obras singulares, historia, servicios, y más. La aplicación está desarrollada utilizando Node.js, Express, Nunjucks como motor de plantillas, y Prisma ORM para la gestión de la base de datos.
 
----
+## Estructura del Proyecto
 
-## 🚀 Tecnologías Utilizadas  
+El proyecto está organizado en varias tareas, cada una con su propio README.md que explica lo que se ha implementado:
 
-- **🟢 Node.js** (v23) - Entorno de ejecución  
-- **⚡ Express.js** - Framework para el backend  
-- **📄 Nunjucks** - Motor de plantillas  
-- **💾 Base de Datos** (Próximamente SQLite/PostgreSQL)  
-- **🔒 Autenticación & API Rest** (Próximamente)  
+- [Tarea 1: Configuración inicial y scraping de datos](./tareas/tarea1/README.md)
+- [Tarea 2: Configuración de la base de datos y ORM](./tareas/tarea2/README.md)
+- [Tarea 3: Desarrollo del frontend con Nunjucks](./tareas/tarea3/README.md)
+- [Tarea 4: Implementación de rutas y controladores](./tareas/tarea4/README.md)
 
----
+## Tecnologías Utilizadas
 
-## 📆 Progreso de las Tareas  
+- **Backend**: Node.js, Express
+- **Frontend**: HTML, CSS, JavaScript, Nunjucks
+- **Base de Datos**: SQLite con Prisma ORM
+- **Herramientas**: Playwright (para scraping)
 
-| #  | Fecha  | Tema                        | Tarea                                    | Estado     |
-|----|--------|-----------------------------|------------------------------------------|------------|
-| 0  | 20 Feb | Introducción                 | Configuración inicial con Node.js, Express y Nunjucks | ✅ Completado |
-| 1  | 27 Feb | JavaScript ES6               | Landing Page con Plantillas             | ✅ Completado |
-| 2  | 6 Mar  | Bases de Datos, ORMs         | Web Scraping                            | 🔜 Pendiente |
-| 3  | 13 Mar | HTTP, WebSockets             | Base de Datos de desarrollo             | 🔜 Pendiente |
-| 4  | 20 Mar | Testing                      | Página de Resultados                    | 🔜 Pendiente |
-| 5  | 27 Mar | Autenticación                | Implementación de autenticación         | 🔜 Pendiente |
-| 6  | 3 Abr  | Logging                      | Registro y gestión de logs              | 🔜 Pendiente |
-| 7  | 10 Abr | API Restful                  | Creación de APIs                        | 🔜 Pendiente |
-| 8  | 17 Abr | Manipulación del DOM         | Interactividad con JavaScript           | 🔜 Pendiente |
-| 9  | 24 Abr | React                        | Single Page App (Parte I)               | 🔜 Pendiente |
-| 10 | 1 May  | **Festivo**                  | 🎉 Descanso                             | 🏖️ Festivo |
-| 11 | 8 May  | React Hooks                  | Single Page App (Parte II)              | 🔜 Pendiente |
-| 12 | 15 May | Metaframeworks (Astro)       | Static Site Generation                  | 🔜 Pendiente |
-| 13 | 22 May | Server Side Rendering (SSR)  | Implementación de SSR                   | 🔜 Pendiente |
-| 14 | 29 May | Despliegue                   | Despliegue final del proyecto           | 🔜 Pendiente |
+## Instalación
 
-✅ **Completado** | ⏳ **En progreso** | 🔜 **Pendiente** | 🏖️ **Festivo**
+1. Clona este repositorio:
+   ```bash
+   git clone <url-del-repositorio>
+   ```
 
----
+2. Instala las dependencias:
+   ```bash
+   npm install
+   ```
 
-## 📌 Instalación y Configuración  
+3. Configura la base de datos:
+   ```bash
+   npx prisma migrate dev --name init
+   ```
 
-### **1️⃣ Clonar el repositorio**  
-```sh
-git clone https://github.com/tosito1/SSWB/
+4. Inserta los datos en la base de datos:
+   ```bash
+   node insertData.js
+   ```
+
+5. Inicia el servidor:
+   ```bash
+   npm run dev
+   ```
+
+6. Abre tu navegador y visita `http://localhost:8000`
+
+## Scripts Disponibles
+
+- `npm run dev`: Inicia el servidor en modo desarrollo con recarga automática
+- `npm run scrap`: Ejecuta el script de scraping para obtener datos del sitio web original
+- `npm run visualizar`: Muestra un resumen de los datos obtenidos por el scraping
+- `npx prisma studio`: Abre una interfaz web para explorar y editar la base de datos
+
+## Autor
+
+[Tu Nombre]
+
+## Licencia
+
+Este proyecto es de código abierto y está disponible bajo la Licencia MIT. 

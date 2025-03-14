@@ -1,32 +1,24 @@
 {
-  "name": "practica",
-  "version": "1.0.0",
-  "main": "index.js",
+  "name": "practicas-ssbw",
+  "version": "0.1",
+  "author": "yo mismo",
+  "main": "index.mjs",
+  "type": "module",
   "scripts": {
-    "dev": "node --watch index.mjs"
+    "dev": "node --watch --env-file=.env index.mjs",
+    "scrap": "node scrap.mjs",
+    "visualizar": "node visualizar_obras.mjs",
+    "insert-data": "node insertData.js",
+    "verify-data": "node verifyData.js"
   },
-  "keywords": [],
-  "author": "Antonio José Muriel Gálvez",
-  "license": "ISC",
-  "description": "![Node.js](https://img.shields.io/badge/Node.js-23-green?logo=node.js)  \r ![Express](https://img.shields.io/badge/Express.js-4.21-blue?logo=express)  \r ![Nunjucks](https://img.shields.io/badge/Nunjucks-3.2-yellow?logo=nunjucks)  \r ![Status](https://img.shields.io/badge/Estado-En%20Desarrollo-orange)",
   "dependencies": {
-    "@tailwindcss/postcss7-compat": "^2.2.17",
+    "@prisma/client": "^6.5.0",
     "chokidar": "^3.6.0",
     "express": "^4.21.2",
     "nunjucks": "^3.2.4"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.20",
-    "postcss": "^8.5.3",
-    "postcss-cli": "^11.0.0",
-    "tailwindcss": "^4.0.9"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tosito1/SSWB.git"
-  },
-  "bugs": {
-    "url": "https://github.com/tosito1/SSWB/issues"
-  },
-  "homepage": "https://github.com/tosito1/SSWB#readme"
+    "playwright": "^1.42.1",
+    "prisma": "^6.5.0"
+  }
 }

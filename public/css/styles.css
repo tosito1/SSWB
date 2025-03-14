@@ -1,0 +1,553 @@
+/* Estilos personalizados para el Museo Arqueológico y Etnológico de Granada */
+
+/* Variables de colores */
+:root {
+    --primary: #006e8c;       /* Azul institucional de la Junta de Andalucía */
+    --primary-dark: #005a73;  /* Azul oscuro para hover */
+    --secondary: #e4a11b;     /* Amarillo/dorado para acentos */
+    --dark: #333333;          /* Gris oscuro para textos */
+    --light: #f8f9fa;         /* Gris claro para fondos */
+    --white: #ffffff;         /* Blanco */
+    --gray-light: #e9ecef;    /* Gris claro para bordes */
+    --gray-medium: #6c757d;   /* Gris medio para textos secundarios */
+}
+
+/* Estilos generales */
+body {
+    font-family: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--dark);
+    line-height: 1.6;
+    background-color: var(--white);
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+.section-title {
+    position: relative;
+    margin-bottom: 2rem;
+    font-weight: 600;
+    color: var(--dark);
+    text-transform: uppercase;
+    font-size: 1.5rem;
+}
+
+.section-title:after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: var(--primary);
+    margin: 0.5rem auto;
+}
+
+/* Barra superior */
+.top-bar {
+    border-bottom: 1px solid var(--gray-light);
+    font-size: 0.9rem;
+    background-color: var(--white);
+}
+
+.top-bar a {
+    color: var(--primary);
+    font-weight: 500;
+}
+
+/* Cabecera */
+header {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.museo-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0;
+    color: var(--dark);
+}
+
+.museo-title a:hover {
+    text-decoration: none;
+}
+
+@media (min-width: 768px) {
+    .museo-title {
+        font-size: 1.8rem;
+    }
+}
+
+/* Navegación */
+.navbar-dark {
+    background-color: var(--primary) !important;
+    padding: 0;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.9);
+    padding: 1rem 1.2rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link:focus,
+.navbar-dark .navbar-nav .nav-link.active {
+    color: var(--white);
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-menu {
+    border-radius: 0;
+    border: none;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    padding: 0;
+    margin-top: 0;
+}
+
+.dropdown-item {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+    border-bottom: 1px solid var(--gray-light);
+}
+
+.dropdown-item:last-child {
+    border-bottom: none;
+}
+
+.dropdown-item:hover, 
+.dropdown-item:focus {
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+/* Slider principal */
+.hero-slider .carousel-item {
+    height: 500px;
+    background-color: #000;
+}
+
+.hero-slider .carousel-item img {
+    object-fit: cover;
+    height: 100%;
+    opacity: 0.8;
+}
+
+.hero-slider .carousel-caption {
+    bottom: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: left;
+    left: 10%;
+    right: 10%;
+    max-width: 600px;
+}
+
+.hero-slider .carousel-caption h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-slider .carousel-caption p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-slider .carousel-indicators {
+    bottom: 30px;
+}
+
+.hero-slider .carousel-indicators button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin: 0 5px;
+}
+
+@media (max-width: 768px) {
+    .hero-slider .carousel-item {
+        height: 350px;
+    }
+    
+    .hero-slider .carousel-caption {
+        text-align: center;
+        left: 5%;
+        right: 5%;
+    }
+    
+    .hero-slider .carousel-caption h2 {
+        font-size: 1.8rem;
+    }
+    
+    .hero-slider .carousel-caption p {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+}
+
+/* Tarjetas */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 0;
+    overflow: hidden;
+    border: none;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+.card-title {
+    font-weight: 600;
+    color: var(--dark);
+    font-size: 1.2rem;
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Botones */
+.btn {
+    border-radius: 0;
+    padding: 0.6rem 1.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+    background-color: var(--primary-dark) !important;
+    border-color: var(--primary-dark) !important;
+    transform: translateY(-2px);
+}
+
+.btn-outline-primary {
+    color: var(--primary);
+    border-color: var(--primary);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}
+
+/* Secciones */
+section {
+    padding: 4rem 0;
+}
+
+section.bg-light {
+    background-color: #f5f7f9 !important;
+}
+
+/* Información práctica */
+.info-practica .card {
+    height: 100%;
+    padding: 0.5rem;
+}
+
+.info-practica .card-title {
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.info-practica .card-text {
+    font-size: 0.95rem;
+}
+
+/* Servicios */
+.servicio-item {
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.servicio-item:hover {
+    background-color: var(--light);
+}
+
+.icon-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: rgba(0, 110, 140, 0.1);
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+/* Actualidad */
+.actualidad .card {
+    border-left: 3px solid var(--primary);
+}
+
+.actualidad .date-box {
+    min-width: 60px;
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark) !important;
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+}
+
+footer h5 {
+    color: var(--secondary);
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+footer .list-unstyled li {
+    margin-bottom: 0.5rem;
+}
+
+footer .list-unstyled a {
+    color: rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+}
+
+footer .list-unstyled a:hover {
+    color: var(--white);
+    text-decoration: none;
+    padding-left: 5px;
+}
+
+.social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--white) !important;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    margin-right: 0.5rem;
+}
+
+.social-icons a:hover {
+    background-color: var(--primary);
+    transform: translateY(-3px);
+    text-decoration: none;
+}
+
+.logos-footer img {
+    height: 40px;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* Ajustes para imágenes */
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Testimonios */
+.testimonials-section .card {
+    padding: 1.5rem;
+}
+
+/* Eventos */
+.events-section .card {
+    margin-bottom: 1.5rem;
+}
+
+/* Galería de imágenes */
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.gallery-item .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .overlay {
+    opacity: 1;
+}
+
+.gallery-item .overlay i {
+    color: white;
+    font-size: 2rem;
+}
+
+/* Paginación */
+.pagination .page-link {
+    color: var(--primary);
+    border-color: var(--gray-light);
+    padding: 0.5rem 1rem;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+.pagination .page-link:hover {
+    background-color: var(--gray-light);
+    color: var(--primary-dark);
+}
+
+/* Breadcrumbs */
+.breadcrumb {
+    background-color: transparent;
+    padding: 0.5rem 0;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    content: ">";
+}
+
+.breadcrumb-item a {
+    color: var(--primary);
+}
+
+.breadcrumb-item.active {
+    color: var(--gray-medium);
+}
+
+/* Estadísticas */
+.stats-section {
+    background-color: var(--primary);
+    color: white;
+}
+
+.counter {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+/* Compartir en redes sociales */
+.social-share a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: var(--gray-light);
+    color: var(--dark);
+    transition: all 0.3s ease;
+}
+
+.social-share a:hover {
+    background-color: var(--primary);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Filtros */
+.btn-group .btn-outline-primary {
+    padding: 0.4rem 1rem;
+}
+
+/* Búsqueda */
+.search-form .form-control {
+    border-radius: 0;
+    border-right: none;
+}
+
+.search-form .btn {
+    border-radius: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 2rem 0;
+    }
+    
+    .hero-section img {
+        margin-bottom: 1.5rem;
+    }
+    
+    section {
+        padding: 2rem 0;
+    }
+    
+    .section-title {
+        font-size: 1.3rem;
+    }
+    
+    .navbar-dark .navbar-nav .nav-link {
+        padding: 0.75rem 1rem;
+    }
+    
+    .dropdown-menu {
+        border: none;
+        box-shadow: none;
+        padding-left: 1rem;
+    }
+    
+    .dropdown-item {
+        padding: 0.5rem 1rem;
+        border-bottom: none;
+    }
+    
+    .info-practica .card {
+        margin-bottom: 1rem;
+    }
+    
+    .servicio-item {
+        margin-bottom: 1rem;
+    }
+    
+    .actualidad .card {
+        margin-bottom: 1rem;
+    }
+    
+    footer {
+        padding-top: 2rem;
+        text-align: center;
+    }
+    
+    .social-icons {
+        margin-bottom: 1.5rem;
+    }
+    
+    .logos-footer {
+        justify-content: center;
+    }
+} 

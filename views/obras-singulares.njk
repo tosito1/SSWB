@@ -1,0 +1,197 @@
+{% extends "base.njk" %}
+
+{% block content %}
+<!-- Cabecera de la página -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="display-4 mb-3">Obras Singulares</h1>
+                <p class="lead mb-4">Descubre las piezas más destacadas de nuestra colección, auténticos tesoros del patrimonio arqueológico granadino.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Filtros -->
+<section class="py-4 border-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="d-flex justify-content-between align-items-center flex-wrap">
+                    <div class="mb-3 mb-md-0">
+                        <span class="text-muted me-2">Filtrar por:</span>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-outline-primary active" data-filter="all">Todos</button>
+                            <button type="button" class="btn btn-outline-primary" data-filter="prehistoria">Prehistoria</button>
+                            <button type="button" class="btn btn-outline-primary" data-filter="romano">Romano</button>
+                            <button type="button" class="btn btn-outline-primary" data-filter="medieval">Medieval</button>
+                            <button type="button" class="btn btn-outline-primary" data-filter="nazari">Nazarí</button>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="searchObras" placeholder="Buscar obra...">
+                            <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Listado de obras -->
+<section class="py-5">
+    <div class="container">
+        <div class="row" id="obrasGrid">
+            {% for obra in obras %}
+            <div class="col-md-6 col-lg-4 mb-4 obra-item">
+                <div class="card h-100 shadow-sm">
+                    {% if obra.imagen %}
+                    <div class="gallery-item">
+                        <img src="{{ obra.imagen }}" class="card-img-top" alt="{{ obra.titulo }}">
+                        <div class="overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    {% else %}
+                    <div class="card-img-top bg-light d-flex align-items-center justify-content-center" style="height: 200px;">
+                        <i class="fas fa-image fa-3x text-muted"></i>
+                    </div>
+                    {% endif %}
+                    <div class="card-body">
+                        <h3 class="card-title">{{ obra.titulo }}</h3>
+                        {% if obra.descripcion %}
+                        <p class="card-text">{{ obra.descripcion | truncate(100) }}</p>
+                        {% else %}
+                        <p class="card-text text-muted">Sin descripción disponible</p>
+                        {% endif %}
+                        <a href="{{ obra.url }}" class="btn btn-outline-primary mt-2" target="_blank">Ver detalle</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Paginación -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <nav aria-label="Paginación de obras">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Anterior</a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Siguiente</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Estadísticas -->
+<section class="py-5 bg-primary text-white stats-section">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-3 mb-4 mb-md-0">
+                <div class="p-3">
+                    <div class="display-4 fw-bold mb-2 counter" data-target="38">0</div>
+                    <p class="mb-0">Obras singulares</p>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4 mb-md-0">
+                <div class="p-3">
+                    <div class="display-4 fw-bold mb-2 counter" data-target="100">0</div>
+                    <p class="mb-0">% con imágenes</p>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4 mb-md-0">
+                <div class="p-3">
+                    <div class="display-4 fw-bold mb-2 counter" data-target="53">0</div>
+                    <p class="mb-0">% con descripciones</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="p-3">
+                    <div class="display-4 fw-bold mb-2 counter" data-target="12">0</div>
+                    <p class="mb-0">Épocas históricas</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Información adicional -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="section-title text-center mb-4">Sobre nuestra colección</h2>
+                <p>El Museo Arqueológico y Etnológico de Granada alberga una de las colecciones más importantes de la arqueología andaluza. Sus fondos abarcan desde la Prehistoria hasta la Edad Moderna, con especial relevancia de las piezas de época nazarí.</p>
+                <p>Las obras singulares que presentamos en esta sección son una selección de las piezas más destacadas de nuestra colección permanente. Cada una de ellas representa un momento histórico significativo y muestra la riqueza del patrimonio arqueológico de Granada y su provincia.</p>
+                <p>Le invitamos a visitar el museo para contemplar estas obras en su contexto y disfrutar de la experiencia completa que ofrece nuestro recorrido expositivo.</p>
+                <div class="text-center mt-4">
+                    <a href="/colecciones" class="btn btn-primary">Conocer más sobre nuestras colecciones</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Filtrado de obras
+        const filterButtons = document.querySelectorAll('[data-filter]');
+        const obraItems = document.querySelectorAll('.obra-item');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Quitar clase active de todos los botones
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Añadir clase active al botón clickeado
+                this.classList.add('active');
+                
+                const filter = this.getAttribute('data-filter');
+                
+                // Mostrar u ocultar obras según el filtro
+                if (filter === 'all') {
+                    obraItems.forEach(item => item.style.display = 'block');
+                } else {
+                    obraItems.forEach(item => {
+                        // Aquí deberías comprobar si la obra pertenece a la categoría
+                        // Como no tenemos esa información, mostramos todas por ahora
+                        item.style.display = 'block';
+                    });
+                }
+            });
+        });
+        
+        // Búsqueda de obras
+        const searchInput = document.getElementById('searchObras');
+        if (searchInput) {
+            searchInput.addEventListener('keyup', function() {
+                const searchTerm = this.value.toLowerCase();
+                
+                obraItems.forEach(item => {
+                    const title = item.querySelector('.card-title').textContent.toLowerCase();
+                    const description = item.querySelector('.card-text').textContent.toLowerCase();
+                    
+                    if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        }
+    });
+</script>
+{% endblock %} 
