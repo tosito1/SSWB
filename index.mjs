@@ -5,6 +5,14 @@ import path from 'path'
 import { fileURLToPath } from 'url'
 import fs from 'fs/promises'
 import { PrismaClient } from '@prisma/client'
+import cookieParser from 'cookie-parser'
+import jwt from 'jsonwebtoken'
+import logger from './logger.mjs'
+import readline from 'readline'
+
+// Importar routers
+import obrasRouter from "./routes/obras.mjs"
+import usuariosRouter from "./routes/usuarios.mjs"
 
 // Inicializar Prisma Client
 const prisma = new PrismaClient()
@@ -18,6 +26,16 @@ const app = express()
 
 // Configurar el puerto
 const PORT = process.env.PORT || 8000
+
+// Middlewares para formularios y cookies
+app.use(express.urlencoded({ extended: true })) // para poner los parámetros del form en el request
+app.use(cookieParser())
+
+// Middleware de logging para peticiones HTTP
+app.use((req, res, next) => {
+	logger.info(`${req.method} ${req.url} ${req.ip}`);
+	next();
+});
 
 // Configurar Nunjucks como motor de plantillas
 const isDev = process.env.NODE_ENV !== 'production'
@@ -83,8 +101,78 @@ nunjucksEnv.addFilter('date', function(date, format) {
 	}
 })
 
+// Middleware de autenticación
+const autentificacion = (req, res, next) => {
+	const token = req.cookies.access_token;
+	if (token) {
+		try {
+			const data = jwt.verify(token, process.env.SECRET_KEY);
+			
+			// Almacenar la información del usuario de manera consistente
+			req.user = {
+				correo: data.correo,
+				nombre: data.usuario,
+				rol: data.rol
+			};
+			
+			// Establecer variables en res.locals para acceso en plantillas
+			res.locals.user = req.user;
+			
+			logger.debug(`Usuario autenticado: ${req.user.nombre}, Rol: ${req.user.rol}`);
+		} catch (error) {
+			logger.error(`Error al verificar token: ${error.message}`);
+			// Si el token no es válido, lo eliminamos
+			res.clearCookie('access_token');
+		}
+	}
+	next();
+};
+
+// Aplicar middleware de autenticación
+app.use(autentificacion);
+
 // Servir archivos estáticos
 app.use(express.static(path.join(__dirname, 'public')))
+
+// Configurar routers
+app.use("/obras", obrasRouter);
+app.use("/usuarios", usuariosRouter);
+
+// Ruta de búsqueda directa (para evitar problemas con el router)
+app.get('/buscar', async (req, res) => {
+	const búsqueda = req.query.búsqueda 
+	logger.info(`Búsqueda de obras: "${búsqueda}"`);
+	
+	try {
+		// Utilizamos búsqueda simple por coincidencia
+		const obras = await prisma.obra.findMany({
+			where: {
+				OR: [
+					{ título: { contains: búsqueda, mode: 'insensitive' } },
+					{ descripción: { contains: búsqueda, mode: 'insensitive' } },
+					{ procedencia: { contains: búsqueda, mode: 'insensitive' } },
+					{ comentario: { contains: búsqueda, mode: 'insensitive' } }
+				]
+			},
+			orderBy: {
+				título: 'asc'
+			},
+			take: 3
+		});
+		
+		logger.debug(`Resultados encontrados para "${búsqueda}": ${obras.length}`);
+		
+		// Renderizamos la plantilla de resultados con los datos
+		res.render('resultados.njk', { 
+			obras: obras,
+			búsqueda: búsqueda,
+			totalResultados: obras.length
+		});
+	} catch (err) {
+		logger.error(`Error en la búsqueda "${búsqueda}": ${err.message}`);
+		res.status(500).send({err}); // o usar una página de error personalizada
+	}
+});
 
 // Rutas
 app.get('/hola', (req, res) => {
@@ -94,58 +182,66 @@ app.get('/hola', (req, res) => {
 // Página de inicio
 app.get('/', async (req, res) => {
 	try {
-		// Obtener 3 obras aleatorias de la base de datos
-		const obrasDestacadas = await prisma.obra.findMany({
-			take: 3,
+		// Obtener las obras para mostrar en la página principal
+		const obras = await prisma.obra.findMany({
+			take: 3, // Limitamos a 3 obras para mostrar en la página principal
 			orderBy: {
-				id: 'asc' // Puedes cambiar esto a un orden aleatorio si lo prefieres
+				id: 'asc' // Ordenamos por ID ascendente para consistencia
 			}
-		})
-		
-		// Obtener noticias recientes (simuladas)
-		const noticias = [
-			{
-				titulo: 'Material Didáctico Interactivo',
-				imagen: '/img/noticias/material-didactico.jpg',
-				fecha: new Date(),
-				resumen: 'Nuevos materiales didácticos para visitas escolares'
-			},
-			{
-				titulo: 'Exposición itinerante del Museo Arqueológico y Etnológico de Granada',
-				imagen: '/img/noticias/exposicion-itinerante.jpg',
-				fecha: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000), // 7 días atrás
-				resumen: 'EL MUSEO SE VA DE VIAJE. Exposición itinerante del Museo Arqueológico y Etnológico de Granada'
-			},
-			{
-				titulo: 'Taller filosófico-poético. Venus de Talará: ¿Quién soy yo?',
-				imagen: '/img/noticias/taller-poetico.jpg',
-				fecha: new Date(Date.now() - 14 * 24 * 60 * 60 * 1000), // 14 días atrás
-				resumen: 'Taller filosófico-poético. Venus de Talará: ¿Quién soy yo? Día 14 de noviembre'
-			}
-		]
+		});
 		
 		res.render('index.njk', {
 			titulo: 'Museo Arqueológico y Etnológico de Granada',
 			active: 'inicio',
-			obras: obrasDestacadas,
-			noticias: noticias,
-			destacados: [
+			obras: obras,
+			exposiciones: [
 				{
-					titulo: 'Reapertura del Museo Arqueológico y Etnológico de Granada',
-					imagen: '/img/destacados/reapertura.jpg'
+					titulo: 'Tesoros de la Granada Nazarí',
+					imagen: '/img/exposicion1.jpg',
+					fecha: 'Del 15 de enero al 30 de marzo',
+					descripcion: 'Un recorrido por las piezas más representativas del periodo nazarí en Granada'
 				},
 				{
-					titulo: 'Detalle de la fachada',
-					imagen: '/img/destacados/fachada.jpg'
+					titulo: 'Arte Prehistórico en Andalucía',
+					imagen: '/img/exposicion2.jpg',
+					fecha: 'Del 1 de abril al 15 de junio',
+					descripcion: 'Manifestaciones artísticas desde el Paleolítico hasta la Edad del Bronce'
+				},
+				{
+					titulo: 'La Romanización de la Bética',
+					imagen: '/img/exposicion3.jpg',
+					fecha: 'Del 1 de julio al 30 de septiembre',
+					descripcion: 'El impacto de Roma en el sur de la Península Ibérica'
 				}
 			]
-		})
+		});
 	} catch (error) {
-		console.error('Error al cargar la página de inicio:', error)
-		res.status(500).render('error.njk', {
-			titulo: 'Error',
-			mensaje: 'Ha ocurrido un error al cargar la página de inicio'
-		})
+		console.error('Error al cargar la página principal:', error);
+		res.render('index.njk', {
+			titulo: 'Museo Arqueológico y Etnológico de Granada',
+			active: 'inicio',
+			obras: [],
+			exposiciones: [
+				{
+					titulo: 'Tesoros de la Granada Nazarí',
+					imagen: '/img/exposicion1.jpg',
+					fecha: 'Del 15 de enero al 30 de marzo',
+					descripcion: 'Un recorrido por las piezas más representativas del periodo nazarí en Granada'
+				},
+				{
+					titulo: 'Arte Prehistórico en Andalucía',
+					imagen: '/img/exposicion2.jpg',
+					fecha: 'Del 1 de abril al 15 de junio',
+					descripcion: 'Manifestaciones artísticas desde el Paleolítico hasta la Edad del Bronce'
+				},
+				{
+					titulo: 'La Romanización de la Bética',
+					imagen: '/img/exposicion3.jpg',
+					fecha: 'Del 1 de julio al 30 de septiembre',
+					descripcion: 'El impacto de Roma en el sur de la Península Ibérica'
+				}
+			]
+		});
 	}
 })
 
@@ -436,16 +532,152 @@ app.get('/mapa-web', (req, res) => {
 	})
 })
 
+// Middleware para proteger rutas administrativas
+function protegerRutaAdmin(req, res, next) {
+    try {
+        // Usar la misma cookie y formato que el middleware de autenticación general
+        const token = req.cookies.access_token;
+        if (!token) {
+            logger.warn('Intento de acceso a ruta protegida sin token');
+            return res.redirect('/usuarios/login');
+        }
+        
+        // Verificar si ya tenemos el usuario en req.user
+        if (req.user && req.user.rol === 'ADMINISTRADOR') {
+            logger.info(`Acceso a la página de logs por ${req.user.nombre || req.user.correo}`);
+            return next();
+        }
+        
+        // Si no, intentar decodificar el token
+        const data = jwt.verify(token, process.env.SECRET_KEY);
+        
+        if (data.rol !== 'ADMINISTRADOR') {
+            logger.warn(`Intento de acceso no autorizado a ruta administrativa por ${data.usuario || data.correo}`);
+            return res.status(403).render('error.njk', {
+                titulo: 'Acceso denegado',
+                mensaje: 'No tienes permiso para acceder a esta página'
+            });
+        }
+        
+        next();
+    } catch (error) {
+        logger.error(`Error al verificar token: ${error.message}`);
+        res.redirect('/usuarios/login');
+    }
+}
+
+// Ruta para ver los logs (protegida, solo para administradores)
+app.get('/admin/logs', protegerRutaAdmin, async (req, res) => {
+    try {
+        logger.info(`Acceso a la página de logs por ${req.user.correo}`);
+        
+        // Leer los archivos de logs
+        const logFile = await fs.readFile('app.log', 'utf8');
+        const errorFile = await fs.readFile('error.log', 'utf8');
+        
+        // Procesar las líneas de los logs
+        const logs = [];
+        
+        // Procesar app.log
+        const appLines = logFile.split('\n').filter(line => line.trim() !== '');
+        appLines.forEach(line => {
+            try {
+                // Formato esperado: [fecha] NIVEL: mensaje
+                const match = line.match(/\[(.*?)\] (\w+):\s+(.*)/);
+                if (match) {
+                    logs.push({
+                        timestamp: match[1],
+                        level: match[2],
+                        message: match[3]
+                    });
+                }
+            } catch (e) {
+                console.error('Error al procesar línea de log:', e);
+            }
+        });
+        
+        // Procesar error.log (solo para añadir errores que no estén ya en app.log)
+        const errorLines = errorFile.split('\n').filter(line => line.trim() !== '');
+        errorLines.forEach(line => {
+            try {
+                const match = line.match(/\[(.*?)\] (\w+):\s+(.*)/);
+                if (match && match[2] === 'ERROR') {
+                    // Verificar si este error ya está en los logs
+                    const exists = logs.some(log => 
+                        log.timestamp === match[1] && 
+                        log.level === 'ERROR' && 
+                        log.message === match[3]
+                    );
+                    
+                    if (!exists) {
+                        logs.push({
+                            timestamp: match[1],
+                            level: 'ERROR',
+                            message: match[3]
+                        });
+                    }
+                }
+            } catch (e) {
+                console.error('Error al procesar línea de error:', e);
+            }
+        });
+        
+        // Ordenar logs por fecha (más recientes primero)
+        logs.sort((a, b) => {
+            const dateA = new Date(a.timestamp);
+            const dateB = new Date(b.timestamp);
+            return dateB - dateA;
+        });
+        
+        // Limitar a los últimos 100 logs para no sobrecargar la página
+        const recentLogs = logs.slice(0, 100);
+        
+        // Contar logs por nivel
+        const infoCount = recentLogs.filter(log => log.level === 'INFO').length;
+        const warnCount = recentLogs.filter(log => log.level === 'WARN').length;
+        const errorCount = recentLogs.filter(log => log.level === 'ERROR').length;
+        const debugCount = recentLogs.filter(log => log.level === 'DEBUG').length;
+        
+        res.render('logs-viewer.njk', {
+            logs: recentLogs,
+            totalLogs: recentLogs.length,
+            infoCount,
+            warnCount,
+            errorCount,
+            debugCount,
+            titulo: 'Visor de Logs',
+            active: 'admin'
+        });
+    } catch (error) {
+        logger.error(`Error al cargar logs: ${error.message}`);
+        res.status(500).render('error.njk', {
+            titulo: 'Error',
+            mensaje: 'Ha ocurrido un error al cargar los logs'
+        });
+    }
+});
+
 // Manejo de errores 404
 app.use((req, res) => {
+	logger.warn(`Página no encontrada: ${req.url}`);
 	res.status(404).render('404.njk', {
 		titulo: 'Página no encontrada',
 		mensaje: 'La página que buscas no existe o ha sido trasladada.'
 	})
 })
 
+// Manejo de errores generales
+app.use((err, req, res, next) => {
+	logger.error(`Error en la aplicación: ${err.stack}`);
+	res.status(500).render('error.njk', {
+		titulo: 'Error del servidor',
+		mensaje: 'Ha ocurrido un error en el servidor.'
+	});
+});
+
 // Iniciar el servidor
 app.listen(PORT, () => {
-	console.log(`Servidor iniciado en http://localhost:${PORT}`)
-	console.log(`Modo: ${isDev ? 'desarrollo' : 'producción'}`)
+	logger.info(`Servidor iniciado en http://localhost:${PORT}`);
+	logger.info(`Modo: ${process.env.NODE_ENV !== 'production' ? 'desarrollo' : 'producción'}`);
 }) 
+

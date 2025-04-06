@@ -1,0 +1,25 @@
+{% extends "base.njk" %}
+
+{% block content %}
+<section class="py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card shadow border-0">
+          <div class="card-body p-4">
+            <h2 class="text-center mb-4">Error</h2>
+            
+            <div class="alert alert-danger">
+              <p>{{ mensaje }}</p>
+            </div>
+            
+            <div class="text-center mt-4">
+              <a href="/" class="btn btn-primary">Volver al inicio</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %} 

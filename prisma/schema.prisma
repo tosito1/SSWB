@@ -1,21 +1,30 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
+  previewFeatures = ["fullTextSearchPostgres"]
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = "file:obras.sqlite"
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 model Obra {
-  id            Int @id @default(autoincrement())
-  título        String
-  imágen        String
-  descripción   String
-  procedencia   String
-  comentario    String
-  url           String
+  id           Int    @id @default(autoincrement())
+  título      String @unique
+  imágen      String
+  descripción String
+  procedencia  String
+  comentario   String
+}
+
+model Usuario {
+  correo   String @id
+  nombre   String
+  password String
+  rol      ROL    @default(USUARIO)
+}
+
+enum ROL {
+  USUARIO
+  ADMINISTRADOR
 }

@@ -1,7 +1,7 @@
 {% extends "base.njk" %}
 
 {% block content %}
-<!-- Slider principal -->
+<!-- Slider principal con imágenes reales -->
 <section class="hero-slider">
     <div id="carouselHero" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
@@ -11,27 +11,27 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="/img/slider-1.jpg" class="d-block w-100" alt="Fachada del Museo Arqueológico de Granada">
+                <img src="/img/slider-1.jpg" class="d-block w-100" alt="Museo Arqueológico" style="height: 500px; object-fit: cover;">
                 <div class="carousel-caption">
-                    <h2>Bienvenidos al Museo Arqueológico y Etnológico de Granada</h2>
-                    <p>Descubre la historia y el patrimonio arqueológico de Granada y su provincia</p>
-                    <a href="/colecciones" class="btn btn-primary">Explorar colecciones</a>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="/img/slider-2.jpg" class="d-block w-100" alt="Sala de exposición del Museo">
-                <div class="carousel-caption">
-                    <h2>Obras singulares de nuestra colección</h2>
-                    <p>Conoce las piezas más destacadas del patrimonio arqueológico granadino</p>
+                    <h2>Museo Arqueológico y Etnológico de Granada</h2>
+                    <p>Descubre nuestra colección de obras arqueológicas</p>
                     <a href="/obras-singulares" class="btn btn-primary">Ver obras singulares</a>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="/img/slider-3.jpg" class="d-block w-100" alt="Actividades en el Museo">
+                <img src="/img/slider-2.jpg" class="d-block w-100" alt="Exposición temporal" style="height: 500px; object-fit: cover;">
                 <div class="carousel-caption">
-                    <h2>Actividades y exposiciones temporales</h2>
-                    <p>Participa en nuestras actividades culturales y educativas</p>
-                    <a href="/actualidad" class="btn btn-primary">Ver agenda</a>
+                    <h2>Exposiciones Temporales</h2>
+                    <p>Visita nuestras exposiciones especiales</p>
+                    <a href="/exposiciones" class="btn btn-primary">Conoce más</a>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="/img/slider-3.jpg" class="d-block w-100" alt="Actividades didácticas" style="height: 500px; object-fit: cover;">
+                <div class="carousel-caption">
+                    <h2>Actividades Didácticas</h2>
+                    <p>Programas educativos para todos los públicos</p>
+                    <a href="/actividades" class="btn btn-primary">Participar</a>
                 </div>
             </div>
         </div>
@@ -46,46 +46,30 @@
     </div>
 </section>
 
-<!-- Información práctica -->
-<section class="py-5 bg-light info-practica">
+<!-- Búsqueda de obras arqueológicas -->
+<section class="py-4 bg-primary">
     <div class="container">
-        <h2 class="section-title text-center mb-4">Información práctica</h2>
-        <div class="row">
-            <div class="col-md-4 mb-4 mb-md-0">
-                <div class="card h-100 shadow-sm">
-                    <div class="card-body">
-                        <h3 class="card-title"><i class="far fa-clock me-2"></i>Horarios</h3>
-                        <p class="card-text">
-                            <strong>Martes a sábado:</strong><br>
-                            09:00 - 21:00<br>
-                            <strong>Domingos y festivos:</strong><br>
-                            09:00 - 15:00<br>
-                            <strong>Lunes:</strong> Cerrado
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4 mb-md-0">
-                <div class="card h-100 shadow-sm">
-                    <div class="card-body">
-                        <h3 class="card-title"><i class="fas fa-ticket-alt me-2"></i>Tarifas</h3>
-                        <p class="card-text">
-                            <strong>Entrada general:</strong> 1,50€<br>
-                            <strong>Entrada gratuita:</strong> Ciudadanos de la UE, estudiantes, menores de 18 años, mayores de 65 años.<br>
-                            <strong>Domingos:</strong> Entrada gratuita para todos los visitantes.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card h-100 shadow-sm">
-                    <div class="card-body">
-                        <h3 class="card-title"><i class="fas fa-map-marker-alt me-2"></i>Ubicación</h3>
-                        <p class="card-text">
-                            Carrera del Darro, 41-43<br>
-                            18010 Granada<br>
-                            <strong>Teléfono:</strong> 958 575 408<br>
-                            <strong>Email:</strong> museoarqueologicogranada.ccul@juntadeandalucia.es
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow-lg border-0">
+                    <div class="card-body p-4">
+                        <h2 class="text-center mb-4">Buscar obras arqueológicas</h2>
+                        <form action="/buscar" method="GET" class="d-flex flex-column flex-md-row gap-2">
+                            <input 
+                                type="search" 
+                                name="búsqueda" 
+                                class="form-control flex-grow-1" 
+                                placeholder="Busca por palabra clave..." 
+                                required 
+                                pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ ]+" 
+                                title="Introduce una palabra (solo letras y espacios)"
+                            >
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-search me-2"></i>Buscar
+                            </button>
+                        </form>
+                        <p class="text-muted small text-center mt-2">
+                            Busca entre nuestra colección por palabras clave (ej: cerámica, romano, nazarí...)
                         </p>
                     </div>
                 </div>
@@ -94,23 +78,72 @@
     </div>
 </section>
 
-<!-- Colección destacada -->
+<!-- Obras singulares -->
 <section class="py-5">
     <div class="container">
-        <h2 class="section-title text-center mb-4">Colección destacada</h2>
+        <h2 class="section-title text-center mb-4">Obras singulares destacadas</h2>
         <div class="row">
-            {% for i in range(1, 4) %}
-            <div class="col-md-4 mb-4">
-                <div class="card shadow-sm h-100">
-                    <img src="/img/pieza-{{ i }}.jpg" class="card-img-top" alt="Pieza destacada {{ i }}">
-                    <div class="card-body">
-                        <h3 class="card-title">{{ obras[i-1].titulo }}</h3>
-                        <p class="card-text">{{ obras[i-1].descripcion }}</p>
-                        <a href="/obras-singulares/{{ obras[i-1].id }}" class="btn btn-outline-primary mt-2">Ver detalle</a>
+            {% if obras and obras.length > 0 %}
+                {% for obra in obras.slice(0, 3) %}
+                    <div class="col-md-4 mb-4">
+                        <div class="card shadow-sm h-100">
+                            {% if obra.imágen %}
+                                {% if obra.imágen.startsWith('http') %}
+                                    <img src="{{ obra.imágen }}" class="card-img-top" alt="{{ obra.título }}" style="height: 200px; object-fit: cover;">
+                                {% else %}
+                                    <img src="/img/{{ obra.imágen }}" class="card-img-top" alt="{{ obra.título }}" style="height: 200px; object-fit: cover;">
+                                {% endif %}
+                            {% else %}
+                                <div class="card-img-top bg-light d-flex align-items-center justify-content-center" style="height: 200px;">
+                                    <span class="text-muted">Imagen no disponible</span>
+                                </div>
+                            {% endif %}
+                            <div class="card-body">
+                                <h3 class="card-title h5">{{ obra.título }}</h3>
+                                <p class="card-text">
+                                    {% if obra.descripción %}
+                                        {{ obra.descripción | truncate(100) }}
+                                    {% else %}
+                                        <span class="text-muted">Sin descripción disponible</span>
+                                    {% endif %}
+                                </p>
+                                <a href="/obras-singulares/{{ obra.id }}" class="btn btn-outline-primary mt-2">Ver detalle</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm h-100">
+                        <img src="/img/pieza-1.jpg" class="card-img-top" alt="Obra singular 1" style="height: 200px; object-fit: cover;">
+                        <div class="card-body">
+                            <h3 class="card-title h5">Ajuar funerario Necrópolis de Tutugi</h3>
+                            <p class="card-text">Excepcional colección de piezas procedentes de la necrópolis ibérica de Tutugi (Galera), que muestra rituales funerarios del siglo IV a.C.</p>
+                            <a href="/obras-singulares/1" class="btn btn-outline-primary mt-2">Ver detalle</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            {% endfor %}
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm h-100">
+                        <img src="/img/pieza-2.jpg" class="card-img-top" alt="Obra singular 2" style="height: 200px; object-fit: cover;">
+                        <div class="card-body">
+                            <h3 class="card-title h5">Venus de Paulenca</h3>
+                            <p class="card-text">Escultura romana del siglo II d.C. hallada en el yacimiento de Paulenca (Guadix) que representa a la diosa Venus.</p>
+                            <a href="/obras-singulares/2" class="btn btn-outline-primary mt-2">Ver detalle</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm h-100">
+                        <img src="/img/pieza-3.jpg" class="card-img-top" alt="Obra singular 3" style="height: 200px; object-fit: cover;">
+                        <div class="card-body">
+                            <h3 class="card-title h5">Jarro nazarí de la Alhambra</h3>
+                            <p class="card-text">Exquisito jarro de cerámica nazarí del siglo XIV, decorado con motivos geométricos y caligrafía árabe.</p>
+                            <a href="/obras-singulares/3" class="btn btn-outline-primary mt-2">Ver detalle</a>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
         </div>
         <div class="text-center mt-4">
             <a href="/obras-singulares" class="btn btn-primary">Ver todas las obras singulares</a>
@@ -118,193 +151,10 @@
     </div>
 </section>
 
-<!-- Actualidad -->
-<section class="py-5 bg-light actualidad">
-    <div class="container">
-        <h2 class="section-title text-center mb-4">Actualidad</h2>
-        <div class="row">
-            <div class="col-md-4 mb-4">
-                <div class="card shadow-sm h-100">
-                    <img src="/img/exposicion1.jpg" class="card-img-top" alt="Exposición temporal">
-                    <div class="card-body">
-                        <div class="d-flex mb-3">
-                            <div class="date-box bg-primary text-white p-2 me-3">
-                                <div class="text-center">
-                                    <span class="d-block fw-bold">15</span>
-                                    <small>MAY</small>
-                                </div>
-                            </div>
-                            <h3 class="card-title">Exposición: "Arte y cultura nazarí"</h3>
-                        </div>
-                        <p class="card-text">Una muestra excepcional de piezas de la época nazarí que revelan la riqueza cultural y artística del último reino musulmán de la Península Ibérica.</p>
-                        <a href="/actualidad/exposicion-nazari" class="btn btn-outline-primary mt-2">Más información</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card shadow-sm h-100">
-                    <img src="/img/exposicion2.jpg" class="card-img-top" alt="Taller educativo">
-                    <div class="card-body">
-                        <div class="d-flex mb-3">
-                            <div class="date-box bg-primary text-white p-2 me-3">
-                                <div class="text-center">
-                                    <span class="d-block fw-bold">22</span>
-                                    <small>MAY</small>
-                                </div>
-                            </div>
-                            <h3 class="card-title">Taller: "Arqueología para niños"</h3>
-                        </div>
-                        <p class="card-text">Taller didáctico para acercar la arqueología a los más pequeños a través de actividades prácticas y divertidas. Para niños de 8 a 12 años.</p>
-                        <a href="/actualidad/taller-arqueologia" class="btn btn-outline-primary mt-2">Más información</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card shadow-sm h-100">
-                    <img src="/img/exposicion3.jpg" class="card-img-top" alt="Conferencia">
-                    <div class="card-body">
-                        <div class="d-flex mb-3">
-                            <div class="date-box bg-primary text-white p-2 me-3">
-                                <div class="text-center">
-                                    <span class="d-block fw-bold">30</span>
-                                    <small>MAY</small>
-                                </div>
-                            </div>
-                            <h3 class="card-title">Conferencia: "Últimos hallazgos arqueológicos en Granada"</h3>
-                        </div>
-                        <p class="card-text">Conferencia a cargo del Dr. Manuel Rodríguez sobre los recientes descubrimientos arqueológicos en la provincia de Granada.</p>
-                        <a href="/actualidad/conferencia-hallazgos" class="btn btn-outline-primary mt-2">Más información</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="text-center mt-4">
-            <a href="/actualidad" class="btn btn-primary">Ver todas las actividades</a>
-        </div>
-    </div>
-</section>
-
-<!-- Servicios -->
-<section class="py-5">
-    <div class="container">
-        <h2 class="section-title text-center mb-4">Nuestros servicios</h2>
-        <div class="row text-center">
-            <div class="col-md-3 col-sm-6 mb-4">
-                <div class="servicio-item">
-                    <div class="icon-wrapper">
-                        <i class="fas fa-users fa-2x"></i>
-                    </div>
-                    <h3 class="h5">Visitas guiadas</h3>
-                    <p class="small">Ofrecemos visitas guiadas para grupos y centros educativos previa reserva.</p>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6 mb-4">
-                <div class="servicio-item">
-                    <div class="icon-wrapper">
-                        <i class="fas fa-book fa-2x"></i>
-                    </div>
-                    <h3 class="h5">Biblioteca</h3>
-                    <p class="small">Biblioteca especializada en arqueología, historia y patrimonio cultural.</p>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6 mb-4">
-                <div class="servicio-item">
-                    <div class="icon-wrapper">
-                        <i class="fas fa-universal-access fa-2x"></i>
-                    </div>
-                    <h3 class="h5">Accesibilidad</h3>
-                    <p class="small">Instalaciones adaptadas para personas con movilidad reducida.</p>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6 mb-4">
-                <div class="servicio-item">
-                    <div class="icon-wrapper">
-                        <i class="fas fa-store fa-2x"></i>
-                    </div>
-                    <h3 class="h5">Tienda</h3>
-                    <p class="small">Tienda con publicaciones, reproducciones y recuerdos del museo.</p>
-                </div>
-            </div>
-        </div>
-        <div class="text-center mt-4">
-            <a href="/servicios" class="btn btn-primary">Más información sobre servicios</a>
-        </div>
-    </div>
-</section>
-
-<!-- Testimonios -->
-<section class="py-5 bg-light testimonials-section">
-    <div class="container">
-        <h2 class="section-title text-center mb-4">Opiniones de nuestros visitantes</h2>
-        <div class="row">
-            <div class="col-md-4 mb-4">
-                <div class="card shadow-sm h-100">
-                    <div class="card-body">
-                        <div class="mb-3 text-warning">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <p class="card-text fst-italic">"Una visita imprescindible para conocer la historia de Granada. Las colecciones están muy bien organizadas y las explicaciones son claras y concisas."</p>
-                        <p class="small text-muted mb-0">- María G., Madrid</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card shadow-sm h-100">
-                    <div class="card-body">
-                        <div class="mb-3 text-warning">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <p class="card-text fst-italic">"El museo ofrece una visión completa de la historia arqueológica de Granada. Las piezas nazaríes son especialmente interesantes. El personal es muy amable y servicial."</p>
-                        <p class="small text-muted mb-0">- Juan P., Barcelona</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card shadow-sm h-100">
-                    <div class="card-body">
-                        <div class="mb-3 text-warning">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <p class="card-text fst-italic">"Visitamos el museo con nuestros hijos y fue una experiencia muy enriquecedora. Las actividades para niños son muy educativas y entretenidas. Volveremos seguro."</p>
-                        <p class="small text-muted mb-0">- Ana R., Sevilla</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Museo en imágenes -->
-<section class="py-5">
-    <div class="container">
-        <h2 class="section-title text-center mb-4">El museo en imágenes</h2>
-        <div class="row">
-            <div class="col-12 text-center">
-                <img src="/img/museo-fachada.jpg" alt="Fachada del Museo" class="img-fluid mb-4 shadow">
-                <p class="text-center">
-                    <a href="/galeria" class="btn btn-primary">Ver galería completa</a>
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
 {% endblock %}
 
 {% block scripts %}
 <script>
-    // Script para activar el carrusel
     document.addEventListener('DOMContentLoaded', function() {
         var myCarousel = document.querySelector('#carouselHero');
         var carousel = new bootstrap.Carousel(myCarousel, {

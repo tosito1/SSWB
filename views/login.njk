@@ -1,0 +1,74 @@
+{% extends "base.njk" %}
+
+{% block title %}Iniciar Sesión{% endblock %}
+
+{% block content %}
+<section class="py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-5">
+        
+        {% if error %}
+        <div class="alert alert-danger">
+          {{ error }}
+        </div>
+        {% endif %}
+        
+        {% if mensaje %}
+        <div class="alert alert-success">
+          {{ mensaje }}
+        </div>
+        {% endif %}
+        
+        <div class="card shadow border-0">
+          <div class="card-body p-4">
+            <h2 class="text-center mb-4">Iniciar Sesión</h2>
+            
+            <form action="/usuarios/login" method="POST">
+              <div class="mb-3">
+                <label for="correo" class="form-label">Correo Electrónico</label>
+                <div class="input-group">
+                  <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                  <input 
+                    type="email" 
+                    id="correo"
+                    name="correo" 
+                    placeholder="ejemplo@correo.com" 
+                    class="form-control" 
+                    required
+                  >
+                </div>
+              </div>
+              
+              <div class="mb-3">
+                <label for="password" class="form-label">Contraseña</label>
+                <div class="input-group">
+                  <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                  <input 
+                    type="password" 
+                    id="password"
+                    name="password" 
+                    placeholder="********" 
+                    class="form-control" 
+                    required
+                  >
+                </div>
+              </div>
+              
+              <div class="mb-3">
+                <button type="submit" class="btn btn-primary w-100">
+                  Iniciar Sesión
+                </button>
+              </div>
+            </form>
+            
+            <div class="text-center mt-4">
+              <p>¿No tienes cuenta? <a href="/usuarios/registro">Regístrate</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %} 

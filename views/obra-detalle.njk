@@ -1,18 +1,19 @@
 {% extends "base.njk" %}
 
+{% block title %}{{ obra.título }} - Museo Arqueológico y Etnológico de Granada{% endblock %}
+
 {% block content %}
 <!-- Cabecera de la página -->
 <section class="py-5 bg-light">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mx-auto text-center">
-                <h1 class="display-4 mb-3">{{ obra.titulo }}</h1>
+                <h1 class="display-5 mb-3">{{ obra.título }}</h1>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb justify-content-center">
                         <li class="breadcrumb-item"><a href="/">Inicio</a></li>
-                        <li class="breadcrumb-item"><a href="/colecciones">Colecciones</a></li>
                         <li class="breadcrumb-item"><a href="/obras-singulares">Obras Singulares</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">{{ obra.titulo }}</li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ obra.título }}</li>
                     </ol>
                 </nav>
             </div>
@@ -23,61 +24,98 @@
 <!-- Detalle de la obra -->
 <section class="py-5">
     <div class="container">
-        <div class="row">
-            <div class="col-md-6 mb-4 mb-md-0">
-                {% if obra.imagen %}
-                <div class="gallery-item">
-                    <img src="{{ obra.imagen }}" class="img-fluid rounded shadow" alt="{{ obra.titulo }}">
-                    <div class="overlay">
-                        <i class="fas fa-search-plus"></i>
+        <div class="row g-5">
+            <!-- Columna de la imagen -->
+            <div class="col-lg-6 mb-4">
+                <div class="position-relative overflow-hidden rounded shadow-lg">
+                    {% if obra.imágen %}
+                        {% if obra.imágen.startsWith('http') %}
+                            <a href="{{ obra.imágen }}" data-lightbox="obra" data-title="{{ obra.título }}">
+                                <img src="{{ obra.imágen }}" class="img-fluid w-100 rounded" alt="{{ obra.título }}" 
+                                    style="object-fit: cover; max-height: 500px;">
+                                <div class="position-absolute top-0 end-0 p-3">
+                                    <button class="btn btn-sm btn-light rounded-circle" title="Ampliar imagen">
+                                        <i class="fas fa-search-plus"></i>
+                                    </button>
+                                </div>
+                            </a>
+                        {% else %}
+                            <a href="/img/{{ obra.imágen }}" data-lightbox="obra" data-title="{{ obra.título }}">
+                                <img src="/img/{{ obra.imágen }}" class="img-fluid w-100 rounded" alt="{{ obra.título }}" 
+                                    style="object-fit: cover; max-height: 500px;">
+                                <div class="position-absolute top-0 end-0 p-3">
+                                    <button class="btn btn-sm btn-light rounded-circle" title="Ampliar imagen">
+                                        <i class="fas fa-search-plus"></i>
+                                    </button>
+                                </div>
+                            </a>
+                        {% endif %}
+                    {% else %}
+                    <div class="bg-light d-flex align-items-center justify-content-center rounded" style="height: 400px;">
+                        <span class="text-muted fs-4">Imagen no disponible</span>
+                    </div>
+                    {% endif %}
+                </div>
+                
+                <!-- Metadatos principales -->
+                <div class="card mt-4 bg-light border-0">
+                    <div class="card-body">
+                        <h3 class="h5 card-title mb-3">Información básica</h3>
+                        <div class="row">
+                            <div class="col-12 mb-3">
+                                <p class="mb-1 text-muted small">Procedencia</p>
+                                <p class="fw-bold">{{ obra.procedencia }}</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                {% else %}
-                <div class="bg-light d-flex align-items-center justify-content-center rounded shadow" style="height: 400px;">
-                    <i class="fas fa-image fa-5x text-muted"></i>
-                </div>
-                {% endif %}
             </div>
-            <div class="col-md-6">
-                <h2 class="mb-4">{{ obra.titulo }}</h2>
+            
+            <!-- Columna de la información -->
+            <div class="col-lg-6">
+                <h2 class="h2 mb-4 pb-2 border-bottom">{{ obra.título }}</h2>
                 
-                {% if obra.descripcion %}
+                <!-- Descripción -->
                 <div class="mb-4">
-                    <h3 class="h5 text-primary">Descripción</h3>
-                    <p>{{ obra.descripcion }}</p>
+                    <h3 class="h4 text-primary mb-3">Descripción</h3>
+                    <div class="lh-lg">
+                        {{ obra.descripción }}
+                    </div>
+                </div>
+                
+                <!-- Comentario -->
+                {% if obra.comentario %}
+                <div class="mb-4">
+                    <h3 class="h4 text-primary mb-3">Información adicional</h3>
+                    <div class="card border-0 bg-light">
+                        <div class="card-body">
+                            <blockquote class="blockquote mb-0">
+                                <p class="lh-lg fst-italic">{{ obra.comentario }}</p>
+                            </blockquote>
+                        </div>
+                    </div>
                 </div>
                 {% endif %}
                 
-                {% if obra.procedencia %}
-                <div class="mb-4">
-                    <h3 class="h5 text-primary">Procedencia</h3>
-                    <p>{{ obra.procedencia }}</p>
-                </div>
-                {% endif %}
-                
-                {% if obra.comentarios %}
-                <div class="mb-4">
-                    <h3 class="h5 text-primary">Comentarios</h3>
-                    <p>{{ obra.comentarios }}</p>
-                </div>
-                {% endif %}
-                
-                <div class="mb-4">
-                    <h3 class="h5 text-primary">Enlace al sitio oficial</h3>
-                    <a href="{{ obra.url }}" class="btn btn-outline-primary" target="_blank">
-                        <i class="fas fa-external-link-alt me-2"></i>Ver en el sitio oficial del museo
-                    </a>
-                </div>
-                
-                <div class="d-flex justify-content-between mt-5">
-                    <a href="/obras-singulares" class="btn btn-outline-secondary">
+                <!-- Botones de acción -->
+                <div class="d-flex flex-wrap justify-content-between gap-2 mt-5">
+                    <a href="/obras-singulares" class="btn btn-outline-primary">
                         <i class="fas fa-arrow-left me-2"></i>Volver a obras singulares
                     </a>
-                    <div class="social-share">
-                        <span class="me-2">Compartir:</span>
-                        <a href="#" class="me-2" title="Compartir en Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="me-2" title="Compartir en Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" title="Compartir por correo"><i class="fas fa-envelope"></i></a>
+                    
+                    <div class="social-share d-flex align-items-center">
+                        <span class="me-2 text-muted">Compartir:</span>
+                        <div class="btn-group" role="group">
+                            <a href="#" class="btn btn-sm btn-outline-secondary" title="Compartir en Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="btn btn-sm btn-outline-secondary" title="Compartir en Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="btn btn-sm btn-outline-secondary" title="Compartir por correo">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -85,37 +123,34 @@
     </div>
 </section>
 
-<!-- Obras relacionadas -->
+<!-- Información de visita -->
 <section class="py-5 bg-light">
     <div class="container">
-        <h2 class="section-title text-center mb-4">Obras relacionadas</h2>
         <div class="row">
-            {% for i in range(1, 4) %}
-            <div class="col-md-4 mb-4">
-                <div class="card h-100 shadow-sm">
-                    <div class="card-img-top bg-secondary" style="height: 200px;"></div>
-                    <div class="card-body">
-                        <h3 class="card-title">Obra relacionada {{ i }}</h3>
-                        <p class="card-text">Descripción breve de la obra relacionada.</p>
-                        <a href="#" class="btn btn-outline-primary mt-2">Ver detalle</a>
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="h3 mb-4">¿Quieres ver esta pieza en persona?</h2>
+                <p class="mb-4">Visita el Museo Arqueológico y Etnológico de Granada para descubrir esta y otras piezas extraordinarias que forman parte de nuestro patrimonio cultural.</p>
+                <div class="row justify-content-center">
+                    <div class="col-md-4 mb-3">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center">
+                                <i class="fas fa-map-marker-alt fa-2x text-primary mb-3"></i>
+                                <h3 class="h5">Ubicación</h3>
+                                <p class="small">Carrera del Darro, 41-43<br>18010 Granada</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center">
+                                <i class="fas fa-clock fa-2x text-primary mb-3"></i>
+                                <h3 class="h5">Horario</h3>
+                                <p class="small">Mar-Sáb: 09:00-21:00<br>Dom y festivos: 09:00-15:00</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            {% endfor %}
-        </div>
-    </div>
-</section>
-
-<!-- Información adicional -->
-<section class="py-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <h2 class="section-title text-center mb-4">Visita nuestro museo</h2>
-                <p class="text-center">Descubre esta y otras obras singulares en el Museo Arqueológico y Etnológico de Granada. Te invitamos a conocer nuestra colección completa y disfrutar de una experiencia cultural única.</p>
-                <div class="text-center mt-4">
-                    <a href="/reserva" class="btn btn-primary">Reserva tu visita</a>
-                </div>
+                <a href="/reserva" class="btn btn-primary mt-4">Planifica tu visita</a>
             </div>
         </div>
     </div>
@@ -125,7 +160,18 @@
 {% block scripts %}
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Código específico para la página de detalle si es necesario
+        // Efecto para ampliar imagen al hacer clic
+        const imagenObra = document.querySelector('[data-lightbox="obra"]');
+        const imagen = document.querySelector('img.img-fluid');
+        
+        if (imagenObra && imagen) {
+            imagenObra.addEventListener('click', function(e) {
+                e.preventDefault();
+                // Aquí se podría implementar un lightbox para mostrar la imagen ampliada
+                // Por ahora, solo abrimos la imagen en una nueva pestaña
+                window.open(imagen.src, '_blank');
+            });
+        }
     });
 </script>
 {% endblock %} 

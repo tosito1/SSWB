@@ -1,0 +1,103 @@
+{% extends "base.njk" %}
+
+{% block title %}Registro de Usuario{% endblock %}
+
+{% block content %}
+<section class="py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-5">
+        
+        {% if error %}
+        <div class="alert alert-danger">
+          {{ error }}
+        </div>
+        {% endif %}
+        
+        <div class="card shadow border-0">
+          <div class="card-body p-4">
+            <h2 class="text-center mb-4">Crear Cuenta</h2>
+            
+            <form action="/usuarios/registro" method="POST">
+              <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <div class="input-group">
+                  <span class="input-group-text"><i class="fas fa-user"></i></span>
+                  <input 
+                    type="text" 
+                    id="nombre"
+                    name="nombre" 
+                    placeholder="Nombre completo" 
+                    class="form-control" 
+                    value="{{ nombre | default('') }}"
+                    required
+                  >
+                </div>
+              </div>
+              
+              <div class="mb-3">
+                <label for="correo" class="form-label">Correo Electrónico</label>
+                <div class="input-group">
+                  <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                  <input 
+                    type="email" 
+                    id="correo"
+                    name="correo" 
+                    placeholder="ejemplo@correo.com" 
+                    class="form-control" 
+                    value="{{ correo | default('') }}"
+                    required
+                  >
+                </div>
+              </div>
+              
+              <div class="mb-3">
+                <label for="password" class="form-label">Contraseña</label>
+                <div class="input-group">
+                  <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                  <input 
+                    type="password"
+                    id="password"
+                    name="password" 
+                    placeholder="********" 
+                    class="form-control" 
+                    required
+                    minlength="6"
+                  >
+                </div>
+                <div class="form-text">La contraseña debe tener al menos 6 caracteres</div>
+              </div>
+              
+              <div class="mb-3">
+                <label for="confirmarPassword" class="form-label">Confirmar Contraseña</label>
+                <div class="input-group">
+                  <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                  <input 
+                    type="password"
+                    id="confirmarPassword"
+                    name="confirmarPassword" 
+                    placeholder="********" 
+                    class="form-control" 
+                    required
+                    minlength="6"
+                  >
+                </div>
+              </div>
+              
+              <div class="mb-3">
+                <button type="submit" class="btn btn-primary w-100">
+                  Registrarse
+                </button>
+              </div>
+            </form>
+            
+            <div class="text-center mt-4">
+              <p>¿Ya tienes cuenta? <a href="/usuarios/login">Iniciar Sesión</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %} 

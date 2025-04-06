@@ -1,5 +1,7 @@
 {% extends "base.njk" %}
 
+{% block title %}Obras Singulares - Museo Arqueológico y Etnológico de Granada{% endblock %}
+
 {% block content %}
 <!-- Cabecera de la página -->
 <section class="py-5 bg-light">
@@ -45,53 +47,83 @@
 <section class="py-5">
     <div class="container">
         <div class="row" id="obrasGrid">
-            {% for obra in obras %}
-            <div class="col-md-6 col-lg-4 mb-4 obra-item">
-                <div class="card h-100 shadow-sm">
-                    {% if obra.imagen %}
-                    <div class="gallery-item">
-                        <img src="{{ obra.imagen }}" class="card-img-top" alt="{{ obra.titulo }}">
-                        <div class="overlay">
-                            <i class="fas fa-search-plus"></i>
+            {% if obras and obras.length > 0 %}
+                {% for obra in obras %}
+                    <div class="col-md-6 col-lg-4 mb-4 obra-item" data-category="all">
+                        <div class="card h-100 shadow-sm">
+                            <div class="position-relative overflow-hidden">
+                                {% if obra.imágen %}
+                                    {% if obra.imágen.startsWith('http') %}
+                                        <a href="{{ obra.imágen }}" data-fancybox="gallery" data-caption="{{ obra.título }}">
+                                            <img src="{{ obra.imágen }}" class="card-img-top" alt="{{ obra.título }}" 
+                                                style="height: 220px; object-fit: cover;">
+                                        </a>
+                                    {% else %}
+                                        <a href="/img/{{ obra.imágen }}" data-fancybox="gallery" data-caption="{{ obra.título }}">
+                                            <img src="/img/{{ obra.imágen }}" class="card-img-top" alt="{{ obra.título }}" 
+                                                style="height: 220px; object-fit: cover;">
+                                        </a>
+                                    {% endif %}
+                                {% else %}
+                                    <div class="bg-light d-flex align-items-center justify-content-center" 
+                                         style="height: 220px;">
+                                        <span class="text-muted">Imagen no disponible</span>
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <div class="card-body d-flex flex-column">
+                                <h3 class="card-title h5">{{ obra.título }}</h3>
+                                <p class="card-text flex-grow-1">
+                                    {% if obra.descripción %}
+                                        {{ obra.descripción | truncate(120) }}
+                                    {% else %}
+                                        <span class="text-muted">Sin descripción disponible</span>
+                                    {% endif %}
+                                </p>
+                                <div class="mt-auto">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <small class="text-muted">{{ obra.procedencia | truncate(20) }}</small>
+                                        <a href="/obras-singulares/{{ obra.id }}" class="btn btn-outline-primary btn-sm">
+                                            Ver detalle
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    {% else %}
-                    <div class="card-img-top bg-light d-flex align-items-center justify-content-center" style="height: 200px;">
-                        <i class="fas fa-image fa-3x text-muted"></i>
-                    </div>
-                    {% endif %}
-                    <div class="card-body">
-                        <h3 class="card-title">{{ obra.titulo }}</h3>
-                        {% if obra.descripcion %}
-                        <p class="card-text">{{ obra.descripcion | truncate(100) }}</p>
-                        {% else %}
-                        <p class="card-text text-muted">Sin descripción disponible</p>
-                        {% endif %}
-                        <a href="{{ obra.url }}" class="btn btn-outline-primary mt-2" target="_blank">Ver detalle</a>
+                {% endfor %}
+            {% else %}
+                <div class="col-12 text-center py-5">
+                    <div class="alert alert-info">
+                        <h4>No se encontraron obras</h4>
+                        <p>Actualmente no hay obras singulares disponibles en nuestra base de datos.</p>
                     </div>
                 </div>
-            </div>
-            {% endfor %}
+            {% endif %}
         </div>
 
-        <!-- Paginación -->
-        <div class="row mt-4">
-            <div class="col-12">
-                <nav aria-label="Paginación de obras">
-                    <ul class="pagination justify-content-center">
-                        <li class="page-item disabled">
-                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Anterior</a>
-                        </li>
-                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">Siguiente</a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
+        {% if obras and obras.length > 0 %}
+            <!-- Paginación - Solo mostrar si hay más de 12 obras -->
+            {% if obras.length > 12 %}
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <nav aria-label="Paginación de obras">
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Anterior</a>
+                                </li>
+                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">Siguiente</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            {% endif %}
+        {% endif %}
     </div>
 </section>
 
@@ -101,7 +133,7 @@
         <div class="row text-center">
             <div class="col-md-3 mb-4 mb-md-0">
                 <div class="p-3">
-                    <div class="display-4 fw-bold mb-2 counter" data-target="38">0</div>
+                    <div class="display-4 fw-bold mb-2 counter" data-target="{{ obras.length }}">0</div>
                     <p class="mb-0">Obras singulares</p>
                 </div>
             </div>
@@ -113,13 +145,13 @@
             </div>
             <div class="col-md-3 mb-4 mb-md-0">
                 <div class="p-3">
-                    <div class="display-4 fw-bold mb-2 counter" data-target="53">0</div>
+                    <div class="display-4 fw-bold mb-2 counter" data-target="100">0</div>
                     <p class="mb-0">% con descripciones</p>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="p-3">
-                    <div class="display-4 fw-bold mb-2 counter" data-target="12">0</div>
+                    <div class="display-4 fw-bold mb-2 counter" data-target="4">0</div>
                     <p class="mb-0">Épocas históricas</p>
                 </div>
             </div>
@@ -137,7 +169,7 @@
                 <p>Las obras singulares que presentamos en esta sección son una selección de las piezas más destacadas de nuestra colección permanente. Cada una de ellas representa un momento histórico significativo y muestra la riqueza del patrimonio arqueológico de Granada y su provincia.</p>
                 <p>Le invitamos a visitar el museo para contemplar estas obras en su contexto y disfrutar de la experiencia completa que ofrece nuestro recorrido expositivo.</p>
                 <div class="text-center mt-4">
-                    <a href="/colecciones" class="btn btn-primary">Conocer más sobre nuestras colecciones</a>
+                    <a href="/buscar" class="btn btn-primary">Buscar en nuestras colecciones</a>
                 </div>
             </div>
         </div>
@@ -148,35 +180,11 @@
 {% block scripts %}
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Filtrado de obras
-        const filterButtons = document.querySelectorAll('[data-filter]');
+        // Funcionalidad de búsqueda en tiempo real
+        const searchInput = document.getElementById('searchObras');
         const obraItems = document.querySelectorAll('.obra-item');
         
-        filterButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                // Quitar clase active de todos los botones
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                // Añadir clase active al botón clickeado
-                this.classList.add('active');
-                
-                const filter = this.getAttribute('data-filter');
-                
-                // Mostrar u ocultar obras según el filtro
-                if (filter === 'all') {
-                    obraItems.forEach(item => item.style.display = 'block');
-                } else {
-                    obraItems.forEach(item => {
-                        // Aquí deberías comprobar si la obra pertenece a la categoría
-                        // Como no tenemos esa información, mostramos todas por ahora
-                        item.style.display = 'block';
-                    });
-                }
-            });
-        });
-        
-        // Búsqueda de obras
-        const searchInput = document.getElementById('searchObras');
-        if (searchInput) {
+        if (searchInput && obraItems.length > 0) {
             searchInput.addEventListener('keyup', function() {
                 const searchTerm = this.value.toLowerCase();
                 
@@ -192,6 +200,57 @@
                 });
             });
         }
+        
+        // Funcionalidad de filtrado por categoría
+        const filterButtons = document.querySelectorAll('[data-filter]');
+        
+        if (filterButtons.length > 0 && obraItems.length > 0) {
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Quitar clase active de todos los botones
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Añadir clase active al botón clickeado
+                    this.classList.add('active');
+                    
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Mostrar u ocultar obras según el filtro
+                    if (filter === 'all') {
+                        obraItems.forEach(item => item.style.display = 'block');
+                    } else {
+                        obraItems.forEach(item => {
+                            const category = item.getAttribute('data-category');
+                            if (category === filter || category === 'all') {
+                                item.style.display = 'block';
+                            } else {
+                                item.style.display = 'none';
+                            }
+                        });
+                    }
+                });
+            });
+        }
+        
+        // Animación de contadores
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200;
+        
+        counters.forEach(counter => {
+            const updateCount = () => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                const inc = target / speed;
+                
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + inc);
+                    setTimeout(updateCount, 1);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+            
+            updateCount();
+        });
     });
 </script>
 {% endblock %} 

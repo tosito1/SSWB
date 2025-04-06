@@ -1,0 +1,248 @@
+{% extends "base.njk" %}
+
+{% block title %}Visor de Logs - Museo Arqueológico y Etnológico de Granada{% endblock %}
+
+{% block content %}
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h1 class="display-4 mb-3">Visor de Logs</h1>
+                <p class="lead mb-4">Sistema de monitoreo de la actividad de la aplicación</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-header bg-primary text-white">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0">Resumen de Logs</h5>
+                            <span class="badge rounded-pill bg-light text-dark">{{ totalLogs }} registros</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row text-center">
+                            <div class="col-md-3 mb-3 mb-md-0">
+                                <div class="p-3 border rounded">
+                                    <div class="h2 text-info">{{ infoCount }}</div>
+                                    <p class="mb-0 text-muted">INFO</p>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-3 mb-md-0">
+                                <div class="p-3 border rounded">
+                                    <div class="h2 text-warning">{{ warnCount }}</div>
+                                    <p class="mb-0 text-muted">WARN</p>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-3 mb-md-0">
+                                <div class="p-3 border rounded">
+                                    <div class="h2 text-danger">{{ errorCount }}</div>
+                                    <p class="mb-0 text-muted">ERROR</p>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="p-3 border rounded">
+                                    <div class="h2 text-success">{{ debugCount }}</div>
+                                    <p class="mb-0 text-muted">DEBUG</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <ul class="nav nav-tabs mb-4" id="logTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="all-tab" data-bs-toggle="tab" data-bs-target="#all" type="button" role="tab" aria-controls="all" aria-selected="true">Todos</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="info-tab" data-bs-toggle="tab" data-bs-target="#info" type="button" role="tab" aria-controls="info" aria-selected="false">Info</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="warn-tab" data-bs-toggle="tab" data-bs-target="#warn" type="button" role="tab" aria-controls="warn" aria-selected="false">Advertencias</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="error-tab" data-bs-toggle="tab" data-bs-target="#error" type="button" role="tab" aria-controls="error" aria-selected="false">Errores</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="debug-tab" data-bs-toggle="tab" data-bs-target="#debug" type="button" role="tab" aria-controls="debug" aria-selected="false">Debug</button>
+                    </li>
+                </ul>
+
+                <div class="tab-content" id="logTabsContent">
+                    <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Fecha/Hora</th>
+                                        <th>Nivel</th>
+                                        <th>Mensaje</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for log in logs %}
+                                        <tr>
+                                            <td class="text-nowrap">{{ log.timestamp }}</td>
+                                            <td>
+                                                {% if log.level === 'INFO' %}
+                                                    <span class="badge bg-info">INFO</span>
+                                                {% elif log.level === 'WARN' %}
+                                                    <span class="badge bg-warning">WARN</span>
+                                                {% elif log.level === 'ERROR' %}
+                                                    <span class="badge bg-danger">ERROR</span>
+                                                {% elif log.level === 'DEBUG' %}
+                                                    <span class="badge bg-success">DEBUG</span>
+                                                {% endif %}
+                                            </td>
+                                            <td>{{ log.message }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-pane fade" id="info" role="tabpanel" aria-labelledby="info-tab">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Fecha/Hora</th>
+                                        <th>Mensaje</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for log in logs %}
+                                        {% if log.level === 'INFO' %}
+                                            <tr>
+                                                <td class="text-nowrap">{{ log.timestamp }}</td>
+                                                <td>{{ log.message }}</td>
+                                            </tr>
+                                        {% endif %}
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-pane fade" id="warn" role="tabpanel" aria-labelledby="warn-tab">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Fecha/Hora</th>
+                                        <th>Mensaje</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for log in logs %}
+                                        {% if log.level === 'WARN' %}
+                                            <tr>
+                                                <td class="text-nowrap">{{ log.timestamp }}</td>
+                                                <td>{{ log.message }}</td>
+                                            </tr>
+                                        {% endif %}
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-pane fade" id="error" role="tabpanel" aria-labelledby="error-tab">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Fecha/Hora</th>
+                                        <th>Mensaje</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for log in logs %}
+                                        {% if log.level === 'ERROR' %}
+                                            <tr>
+                                                <td class="text-nowrap">{{ log.timestamp }}</td>
+                                                <td>{{ log.message }}</td>
+                                            </tr>
+                                        {% endif %}
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-pane fade" id="debug" role="tabpanel" aria-labelledby="debug-tab">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Fecha/Hora</th>
+                                        <th>Mensaje</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for log in logs %}
+                                        {% if log.level === 'DEBUG' %}
+                                            <tr>
+                                                <td class="text-nowrap">{{ log.timestamp }}</td>
+                                                <td>{{ log.message }}</td>
+                                            </tr>
+                                        {% endif %}
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Permitir que las pestañas funcionen sin bootstrap.js
+    const tabTriggers = document.querySelectorAll('[data-bs-toggle="tab"]');
+    
+    tabTriggers.forEach(tabTrigger => {
+        tabTrigger.addEventListener('click', function(event) {
+            event.preventDefault();
+            
+            // Eliminar active de todos los tabs
+            tabTriggers.forEach(tab => {
+                tab.classList.remove('active');
+                tab.setAttribute('aria-selected', 'false');
+            });
+            
+            // Activar el tab actual
+            this.classList.add('active');
+            this.setAttribute('aria-selected', 'true');
+            
+            // Ocultar todos los paneles
+            const tabContent = document.querySelectorAll('.tab-pane');
+            tabContent.forEach(content => {
+                content.classList.remove('show');
+                content.classList.remove('active');
+            });
+            
+            // Mostrar el panel correspondiente
+            const targetId = this.getAttribute('data-bs-target').substring(1);
+            const targetPanel = document.getElementById(targetId);
+            targetPanel.classList.add('show');
+            targetPanel.classList.add('active');
+        });
+    });
+});
+</script>
+{% endblock %} 

@@ -27,8 +27,7 @@ async function main() {
           imágen: obra.imagen || '',
           descripción: obra.descripcion || '',
           procedencia: obra.procedencia || '',
-          comentario: obra.comentario || '',
-          url: obra.url || ''
+          comentario: obra.comentario || ''
         }
       });
       

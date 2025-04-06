@@ -52,50 +52,57 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(statsSection);
     }
 
-    // Galería de imágenes con lightbox (si existe)
-    const galleryItems = document.querySelectorAll('.gallery-item');
-    if (galleryItems.length > 0) {
-        galleryItems.forEach(item => {
-            item.addEventListener('click', function(e) {
-                e.preventDefault();
-                const imgSrc = this.querySelector('img').getAttribute('src');
-                const imgAlt = this.querySelector('img').getAttribute('alt');
+    // Filtrado de obras en la página de obras singulares
+    const filterButtons = document.querySelectorAll('[data-filter]');
+    const obraItems = document.querySelectorAll('.obra-item');
+    
+    if (filterButtons.length > 0 && obraItems.length > 0) {
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Quitar clase active de todos los botones
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Añadir clase active al botón clickeado
+                this.classList.add('active');
                 
-                // Crear modal para la imagen
-                const modal = document.createElement('div');
-                modal.classList.add('modal', 'fade');
-                modal.setAttribute('id', 'imageModal');
-                modal.setAttribute('tabindex', '-1');
-                modal.setAttribute('aria-hidden', 'true');
+                const filter = this.getAttribute('data-filter');
                 
-                modal.innerHTML = `
-                    <div class="modal-dialog modal-dialog-centered modal-lg">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title">${imgAlt}</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body text-center">
-                                <img src="${imgSrc}" class="img-fluid" alt="${imgAlt}">
-                            </div>
-                        </div>
-                    </div>
-                `;
+                // Mostrar u ocultar obras según el filtro
+                if (filter === 'all') {
+                    obraItems.forEach(item => item.style.display = 'block');
+                } else {
+                    obraItems.forEach(item => {
+                        const category = item.getAttribute('data-category');
+                        if (category === filter) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                }
+            });
+        });
+    }
+    
+    // Búsqueda de obras
+    const searchInput = document.getElementById('searchObras');
+    if (searchInput && obraItems.length > 0) {
+        searchInput.addEventListener('keyup', function() {
+            const searchTerm = this.value.toLowerCase();
+            
+            obraItems.forEach(item => {
+                const title = item.querySelector('.card-title').textContent.toLowerCase();
+                const description = item.querySelector('.card-text').textContent.toLowerCase();
                 
-                document.body.appendChild(modal);
-                
-                const modalInstance = new bootstrap.Modal(modal);
-                modalInstance.show();
-                
-                // Eliminar modal del DOM cuando se cierre
-                modal.addEventListener('hidden.bs.modal', function() {
-                    document.body.removeChild(modal);
-                });
+                if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
             });
         });
     }
 
-    // Formulario de búsqueda
+    // Formulario de búsqueda general
     const searchForm = document.querySelector('.search-form');
     if (searchForm) {
         searchForm.addEventListener('submit', function(e) {

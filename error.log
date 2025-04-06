@@ -1,0 +1,355 @@
+[2025-04-06 05:06:11] ERROR: 	Error en la búsqueda "jarro": 
+Invalid `prisma.obra.findMany()` invocation:
+
+{
+  where: {
+    OR: [
+      {
+        título: {
+          search: "jarro"
+        }
+      },
+      {
+        descripción: {
+          search: "jarro"
+        }
+      },
+      {
+        procedencia: {
+          search: "jarro"
+        }
+      },
+      {
+        comentario: {
+          search: "jarro"
+        }
+      }
+    ]
+  },
+  orderBy: {
+    título: {
+      relevance: "jarro"
+    }
+    ~~~~~~~~~~~~~~~~~~~~
+  },
+  take: 3
+}
+
+Argument `título`: Invalid value provided. Expected SortOrder, provided Object.
+[2025-04-06 05:06:20] ERROR: 	Error en la búsqueda "ceramica": 
+Invalid `prisma.obra.findMany()` invocation:
+
+{
+  where: {
+    OR: [
+      {
+        título: {
+          search: "ceramica"
+        }
+      },
+      {
+        descripción: {
+          search: "ceramica"
+        }
+      },
+      {
+        procedencia: {
+          search: "ceramica"
+        }
+      },
+      {
+        comentario: {
+          search: "ceramica"
+        }
+      }
+    ]
+  },
+  orderBy: {
+    título: {
+      relevance: "ceramica"
+    }
+    ~~~~~~~~~~~~~~~~~~~~~~~
+  },
+  take: 3
+}
+
+Argument `título`: Invalid value provided. Expected SortOrder, provided Object.
+[2025-04-06 05:33:43] ERROR: 	Error en la aplicación: Template render error: (C:\Users\ivang\Desktop\Practica\SSWB\views\login.njk)
+  Template render error: (C:\Users\ivang\Desktop\Practica\SSWB\views\base-tailwind.njk) [Line 78, Column 15]
+  unexpected token: !
+    at Object._prettifyError (C:\Users\ivang\Desktop\Practica\SSWB\node_modules\nunjucks\src\lib.js:32:11)
+    at C:\Users\ivang\Desktop\Practica\SSWB\node_modules\nunjucks\src\environment.js:464:19
+    at Template.root [as rootRenderFunc] (eval at _compile (C:\Users\ivang\Desktop\Practica\SSWB\node_modules\nunjucks\src\environment.js:527:18), <anonymous>:31:3)
+    at Template.render (C:\Users\ivang\Desktop\Practica\SSWB\node_modules\nunjucks\src\environment.js:454:10)
+    at C:\Users\ivang\Desktop\Practica\SSWB\node_modules\nunjucks\src\environment.js:301:27
+    at createTemplate (C:\Users\ivang\Desktop\Practica\SSWB\node_modules\nunjucks\src\environment.js:254:9)
+    at handle (C:\Users\ivang\Desktop\Practica\SSWB\node_modules\nunjucks\src\environment.js:265:11)
+    at C:\Users\ivang\Desktop\Practica\SSWB\node_modules\nunjucks\src\environment.js:276:9
+    at next (C:\Users\ivang\Desktop\Practica\SSWB\node_modules\nunjucks\src\lib.js:258:7)
+    at Object.asyncIter (C:\Users\ivang\Desktop\Practica\SSWB\node_modules\nunjucks\src\lib.js:263:3)
+[2025-04-06 05:38:30] ERROR: 	Error en la búsqueda "undefined": 
+Invalid `prisma.obra.findMany()` invocation:
+
+{
+  where: {
+    OR: [
+      {
+        título: {
+          search: undefined
+        }
+      },
+      {
+        descripción: {
+          search: undefined
+        }
+      },
+      {
+        procedencia: {
+          search: undefined
+        }
+      },
+      {
+        comentario: {
+          search: undefined
+        }
+      }
+    ]
+  },
+  orderBy: {
+    título: {
+      relevance: undefined
+    }
+    ~~~~~~~~~~~~~~~~~~~~~~
+  },
+  take: 3
+}
+
+Argument `título`: Invalid value provided. Expected SortOrder, provided Object.
+[2025-04-06 05:47:23] ERROR: 	Error en la búsqueda "jarro": 
+Invalid `prisma.obra.findMany()` invocation:
+
+{
+  where: {
+    OR: [
+      {
+        título: {
+          search: "jarro"
+        }
+      },
+      {
+        descripción: {
+          search: "jarro"
+        }
+      },
+      {
+        procedencia: {
+          search: "jarro"
+        }
+      },
+      {
+        comentario: {
+          search: "jarro"
+        }
+      }
+    ]
+  },
+  orderBy: {
+    título: {
+      relevance: "jarro"
+    }
+    ~~~~~~~~~~~~~~~~~~~~
+  },
+  take: 3
+}
+
+Argument `título`: Invalid value provided. Expected SortOrder, provided Object.
+[2025-04-06 05:49:30] ERROR: 	Error en la búsqueda "jarro": 
+Invalid `prisma.obra.findMany()` invocation:
+
+{
+  where: {
+    OR: [
+      {
+        título: {
+          search: "jarro"
+        }
+      },
+      {
+        descripción: {
+          search: "jarro"
+        }
+      },
+      {
+        procedencia: {
+          search: "jarro"
+        }
+      },
+      {
+        comentario: {
+          search: "jarro"
+        }
+      }
+    ]
+  },
+  orderBy: {
+    título: {
+      relevance: "jarro"
+    }
+    ~~~~~~~~~~~~~~~~~~~~
+  },
+  take: 3
+}
+
+Argument `título`: Invalid value provided. Expected SortOrder, provided Object.
+[2025-04-06 05:49:56] ERROR: 	Error en la búsqueda "Jarro": 
+Invalid `prisma.obra.findMany()` invocation:
+
+{
+  where: {
+    OR: [
+      {
+        título: {
+          search: "Jarro"
+        }
+      },
+      {
+        descripción: {
+          search: "Jarro"
+        }
+      },
+      {
+        procedencia: {
+          search: "Jarro"
+        }
+      },
+      {
+        comentario: {
+          search: "Jarro"
+        }
+      }
+    ]
+  },
+  orderBy: {
+    título: {
+      relevance: "Jarro"
+    }
+    ~~~~~~~~~~~~~~~~~~~~
+  },
+  take: 3
+}
+
+Argument `título`: Invalid value provided. Expected SortOrder, provided Object.
+[2025-04-06 05:50:49] ERROR: 	Error en la búsqueda "espada": 
+Invalid `prisma.obra.findMany()` invocation:
+
+{
+  where: {
+    OR: [
+      {
+        título: {
+          search: "espada"
+        }
+      },
+      {
+        descripción: {
+          search: "espada"
+        }
+      },
+      {
+        procedencia: {
+          search: "espada"
+        }
+      },
+      {
+        comentario: {
+          search: "espada"
+        }
+      }
+    ]
+  },
+  orderBy: {
+    título: {
+      relevance: "espada"
+    }
+    ~~~~~~~~~~~~~~~~~~~~~
+  },
+  take: 3
+}
+
+Argument `título`: Invalid value provided. Expected SortOrder, provided Object.
+[2025-04-06 05:51:08] ERROR: 	Error en la búsqueda "Hierro": 
+Invalid `prisma.obra.findMany()` invocation:
+
+{
+  where: {
+    OR: [
+      {
+        título: {
+          search: "Hierro"
+        }
+      },
+      {
+        descripción: {
+          search: "Hierro"
+        }
+      },
+      {
+        procedencia: {
+          search: "Hierro"
+        }
+      },
+      {
+        comentario: {
+          search: "Hierro"
+        }
+      }
+    ]
+  },
+  orderBy: {
+    título: {
+      relevance: "Hierro"
+    }
+    ~~~~~~~~~~~~~~~~~~~~~
+  },
+  take: 3
+}
+
+Argument `título`: Invalid value provided. Expected SortOrder, provided Object.
+[2025-04-06 05:51:16] ERROR: 	Error en la búsqueda "Hierro": 
+Invalid `prisma.obra.findMany()` invocation:
+
+{
+  where: {
+    OR: [
+      {
+        título: {
+          search: "Hierro"
+        }
+      },
+      {
+        descripción: {
+          search: "Hierro"
+        }
+      },
+      {
+        procedencia: {
+          search: "Hierro"
+        }
+      },
+      {
+        comentario: {
+          search: "Hierro"
+        }
+      }
+    ]
+  },
+  orderBy: {
+    título: {
+      relevance: "Hierro"
+    }
+    ~~~~~~~~~~~~~~~~~~~~~
+  },
+  take: 3
+}
+
+Argument `título`: Invalid value provided. Expected SortOrder, provided Object.

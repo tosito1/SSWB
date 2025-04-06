@@ -1,0 +1,55 @@
+{% extends "base.njk" %}
+
+{% block title %}Resultados de búsqueda: {{ búsqueda }}{% endblock %}
+
+{% block content %}
+<section class="py-5">
+  <div class="container">
+    <div class="row mb-4">
+      <div class="col-12 d-flex justify-content-between align-items-center">
+        <h1 class="h2">Resultados de búsqueda</h1>
+        <a href="/" class="btn btn-primary">
+          Volver a la portada
+        </a>
+      </div>
+    </div>
+    
+    <div class="card mb-4 shadow-sm">
+      <div class="card-body">
+        <p class="fs-5 mb-2">Término buscado: <span class="fw-bold">{{ búsqueda }}</span></p>
+        <p class="text-muted">Se encontraron {{ totalResultados }} resultado(s)</p>
+      </div>
+    </div>
+
+    {% if obras.length > 0 %}
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        {% for obra in obras %}
+          <div class="col">
+            <div class="card h-100 shadow-sm">
+              {% if obra.imágen %}
+                <img src="{{ obra.imágen }}" alt="{{ obra.título }}" class="card-img-top" style="height: 250px; object-fit: cover;">
+              {% else %}
+                <div class="card-img-top bg-light d-flex align-items-center justify-content-center" style="height: 250px;">
+                  <span class="text-muted">Sin imagen</span>
+                </div>
+              {% endif %}
+              <div class="card-body">
+                <h5 class="card-title">{{ obra.título }}</h5>
+                <p class="card-text text-muted">Procedencia: {{ obra.procedencia }}</p>
+                <p class="card-text">{{ obra.descripción | truncate(100) }}</p>
+                <a href="/obras-singulares/{{ obra.id }}" class="btn btn-outline-primary">
+                  Ver detalles
+                </a>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="alert alert-info">
+        No se encontraron resultados para "{{ búsqueda }}". Intenta con otro término.
+      </div>
+    {% endif %}
+  </div>
+</section>
+{% endblock %} 

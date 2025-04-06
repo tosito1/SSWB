@@ -9,16 +9,28 @@
     "scrap": "node scrap.mjs",
     "visualizar": "node visualizar_obras.mjs",
     "insert-data": "node insertData.js",
-    "verify-data": "node verifyData.js"
+    "verify-data": "node verifyData.js",
+    "seed": "node prisma/seed.mjs",
+    "prisma:seed": "node prisma/seed.mjs",
+    "test": "playwright test"
   },
   "dependencies": {
     "@prisma/client": "^6.5.0",
+    "bcryptjs": "^3.0.2",
     "chokidar": "^3.6.0",
+    "cookie-parser": "^1.4.7",
     "express": "^4.21.2",
-    "nunjucks": "^3.2.4"
+    "jsonwebtoken": "^9.0.2",
+    "node-fetch": "^3.3.2",
+    "nunjucks": "^3.2.4",
+    "winston": "^3.17.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.51.1",
     "playwright": "^1.42.1",
     "prisma": "^6.5.0"
+  },
+  "prisma": {
+    "seed": "node prisma/seed.mjs"
   }
 }

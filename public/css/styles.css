@@ -14,7 +14,7 @@
 
 /* Estilos generales */
 body {
-    font-family: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: var(--dark);
     line-height: 1.6;
     background-color: var(--white);
@@ -77,12 +77,6 @@ header {
     text-decoration: none;
 }
 
-@media (min-width: 768px) {
-    .museo-title {
-        font-size: 1.8rem;
-    }
-}
-
 /* Navegación */
 .navbar-dark {
     background-color: var(--primary) !important;
@@ -105,54 +99,50 @@ header {
     background-color: rgba(0, 0, 0, 0.1);
 }
 
-.dropdown-menu {
-    border-radius: 0;
-    border: none;
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-    padding: 0;
-    margin-top: 0;
-}
-
-.dropdown-item {
-    padding: 0.75rem 1.5rem;
-    font-size: 0.9rem;
-    border-bottom: 1px solid var(--gray-light);
-}
-
-.dropdown-item:last-child {
-    border-bottom: none;
-}
-
-.dropdown-item:hover, 
-.dropdown-item:focus {
-    background-color: var(--primary);
-    color: var(--white);
-}
-
 /* Slider principal */
 .hero-slider .carousel-item {
-    height: 500px;
+    height: 300px;
     background-color: #000;
+    position: relative;
 }
 
-.hero-slider .carousel-item img {
-    object-fit: cover;
+.hero-slider .carousel-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 100%;
+    background-image: url('https://www.museosdeandalucia.es/documents/33753/0/Fachada+Museo+Arqueol%C3%B3gico+y+Etnol%C3%B3gico+de+Granada/cbcb19d1-16dd-4ab1-a083-2e38a70f5ed9?t=1572340193825');
+    background-size: cover;
+    background-position: center;
     opacity: 0.8;
+    z-index: 1;
+}
+
+.hero-slider .carousel-item:nth-child(2)::before {
+    background-image: url('https://www.juntadeandalucia.es/cultura/museos/media/museos/MAEGR/P_Destacada.jpg');
+}
+
+.hero-slider .carousel-item:nth-child(3)::before {
+    background-image: url('https://www.granadahoy.com/2023/01/09/ocio/Fernando-Marin-director-Museo-Arqueologico_1755135078_172491767_667x375.jpg');
 }
 
 .hero-slider .carousel-caption {
     bottom: auto;
     top: 50%;
     transform: translateY(-50%);
-    text-align: left;
+    text-align: center;
     left: 10%;
     right: 10%;
-    max-width: 600px;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 5px;
 }
 
 .hero-slider .carousel-caption h2 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 700;
     margin-bottom: 1rem;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
@@ -175,31 +165,10 @@ header {
     margin: 0 5px;
 }
 
-@media (max-width: 768px) {
-    .hero-slider .carousel-item {
-        height: 350px;
-    }
-    
-    .hero-slider .carousel-caption {
-        text-align: center;
-        left: 5%;
-        right: 5%;
-    }
-    
-    .hero-slider .carousel-caption h2 {
-        font-size: 1.8rem;
-    }
-    
-    .hero-slider .carousel-caption p {
-        font-size: 1rem;
-        margin-bottom: 1rem;
-    }
-}
-
 /* Tarjetas */
 .card {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-radius: 0;
+    border-radius: 0.5rem;
     overflow: hidden;
     border: none;
 }
@@ -218,11 +187,50 @@ header {
 .card-img-top {
     height: 200px;
     object-fit: cover;
+    background-color: #f0f0f0;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Imágenes alternativas para las tarjetas */
+.card:nth-child(1) .card-img-top {
+    background-image: url('https://www.museosdeandalucia.es/documents/33753/73891/IMG_3321w.JPG/48f61e2d-48c4-462f-9ba5-f3cac1a5d87e?t=1571311933000');
+}
+
+.card:nth-child(2) .card-img-top {
+    background-image: url('https://www.museosdeandalucia.es/documents/33753/0/Jarro+con+pescador/5cff2d9e-db73-4fb4-999c-1e4e3ed39c8e?t=1571311933000');
+}
+
+.card:nth-child(3) .card-img-top {
+    background-image: url('https://www.museosdeandalucia.es/documents/33753/73891/IMG_2891w.JPG/e74ca493-8b70-41a2-ae10-f35e5d5a6e36?t=1571311933000');
+}
+
+/* Para la sección de actualidad */
+.actualidad .card:nth-child(1) .card-img-top {
+    background-image: url('https://www.museosdeandalucia.es/documents/33753/73925/IMG_3278w.JPG/da54fd4c-6f6e-4d4b-a598-b0ae73ec1f0c?t=1571311933000');
+}
+
+.actualidad .card:nth-child(2) .card-img-top {
+    background-image: url('https://www.museosdeandalucia.es/documents/33753/0/MAEGR_Taller+didactico_Candil+romano.jpg/02a2f77f-cb32-41a6-b7f0-b55517ec2c87?t=1571311933000');
+}
+
+.actualidad .card:nth-child(3) .card-img-top {
+    background-image: url('https://www.museosdeandalucia.es/documents/33753/188402/Semana+Museo+Arqueologico+2018.jpeg/4d0ed40d-30ca-49c5-b35b-ded79b35a903?t=1571311933000');
+}
+
+/* Imagen del museo */
+.museo-imagen img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    background-image: url('https://www.granadahoy.com/2023/01/09/ocio/Fernando-Marin-director-Museo-Arqueologico_1755135078_172491767_667x375.jpg');
+    background-size: cover;
+    background-position: center;
 }
 
 /* Botones */
 .btn {
-    border-radius: 0;
+    border-radius: 0.25rem;
     padding: 0.6rem 1.8rem;
     font-weight: 500;
     text-transform: uppercase;
@@ -249,10 +257,12 @@ header {
     border-color: var(--primary);
 }
 
-.btn-outline-primary:hover {
+.btn-outline-primary:hover,
+.btn-outline-primary:focus,
+.btn-outline-primary:active {
     background-color: var(--primary);
     border-color: var(--primary);
-    transform: translateY(-2px);
+    color: var(--white);
 }
 
 /* Secciones */
@@ -387,7 +397,6 @@ footer .list-unstyled a:hover {
 .gallery-item {
     position: relative;
     overflow: hidden;
-    cursor: pointer;
 }
 
 .gallery-item .overlay {
@@ -408,26 +417,150 @@ footer .list-unstyled a:hover {
     opacity: 1;
 }
 
-.gallery-item .overlay i {
-    color: white;
-    font-size: 2rem;
+.gallery-item .overlay i, 
+.gallery-item .overlay a {
+    color: #fff;
+    font-size: 1.5rem;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 110, 140, 0.7);
+    border-radius: 50%;
+    transition: all 0.3s ease;
 }
 
-/* Paginación */
+.gallery-item .overlay a:hover {
+    transform: scale(1.1);
+    background-color: var(--primary);
+    text-decoration: none;
+}
+
+/* Badges y etiquetas */
+.badge {
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.5rem 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Contador de estadísticas */
+.counter {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.stats-section {
+    background-color: var(--primary);
+    position: relative;
+}
+
+.stats-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://www.granadahoy.com/2023/01/09/ocio/Fernando-Marin-director-Museo-Arqueologico_1755135078_172491767_667x375.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.1;
+    z-index: 0;
+}
+
+.stats-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Mejoras para la paginación */
 .pagination .page-link {
+    border: none;
     color: var(--primary);
-    border-color: var(--gray-light);
-    padding: 0.5rem 1rem;
+    font-weight: 500;
+    padding: 0.75rem 1rem;
 }
 
 .pagination .page-item.active .page-link {
     background-color: var(--primary);
-    border-color: var(--primary);
+    color: #fff;
 }
 
 .pagination .page-link:hover {
-    background-color: var(--gray-light);
+    background-color: rgba(0, 110, 140, 0.1);
     color: var(--primary-dark);
+}
+
+/* Date box para eventos */
+.date-box {
+    min-width: 50px;
+    border-radius: 4px;
+}
+
+.date-box .d-block {
+    font-size: 1.25rem;
+    line-height: 1;
+}
+
+.date-box small {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+/* Iconos servicios */
+.servicio-item:hover {
+    transform: translateY(-10px);
+}
+
+.icon-wrapper {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 1rem;
+    background-color: rgba(0, 110, 140, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    transition: all 0.3s ease;
+}
+
+.servicio-item:hover .icon-wrapper {
+    background-color: var(--primary);
+    color: #fff;
+    transform: rotateY(180deg);
+}
+
+/* Testimonios */
+.testimonials-section .card {
+    border-left: 4px solid var(--primary);
+}
+
+/* Mejoras responsive */
+@media (max-width: 768px) {
+    .btn-group .btn {
+        padding: 0.375rem 0.5rem;
+        font-size: 0.8rem;
+    }
+    
+    .counter {
+        font-size: 2rem;
+    }
+    
+    .card-title {
+        font-size: 1.1rem;
+    }
+    
+    .gallery-item .overlay i, 
+    .gallery-item .overlay a {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
 }
 
 /* Breadcrumbs */
@@ -446,17 +579,6 @@ footer .list-unstyled a:hover {
 
 .breadcrumb-item.active {
     color: var(--gray-medium);
-}
-
-/* Estadísticas */
-.stats-section {
-    background-color: var(--primary);
-    color: white;
-}
-
-.counter {
-    font-size: 3rem;
-    font-weight: 700;
 }
 
 /* Compartir en redes sociales */
@@ -550,4 +672,78 @@ footer .list-unstyled a:hover {
     .logos-footer {
         justify-content: center;
     }
+}
+
+/* Búsqueda de obras */
+.search-form {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Resultados de búsqueda */
+.results-header {
+    background-color: var(--light);
+    padding: 1.5rem 0;
+    margin-bottom: 2rem;
+}
+
+.results-count {
+    font-weight: 500;
+    color: var(--primary);
+}
+
+.result-item {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--gray-light);
+}
+
+.result-item:last-child {
+    border-bottom: none;
+}
+
+/* Obras singulares */
+.obra-item {
+    margin-bottom: 2rem;
+}
+
+.obra-item .gallery-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.obra-item .gallery-item .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.obra-item .gallery-item:hover .overlay {
+    opacity: 1;
+}
+
+.obra-item .gallery-item .overlay a {
+    color: white;
+    font-size: 1.5rem;
+}
+
+/* Categorías o filtros */
+.btn-group .btn-outline-primary {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/* Badges */
+.badge {
+    font-size: 0.75rem;
+    padding: 0.5rem 0.75rem;
+    text-transform: uppercase;
 } 
