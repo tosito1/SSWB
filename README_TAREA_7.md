@@ -59,7 +59,7 @@ Se ha creado un archivo de prueba para facilitar la verificación y depuración 
 
 ```http
 // Comprobar si existe un usuario
-GET http://localhost:8000/api/usuario/pp@pp.com
+GET http://localhost:8000/api/usuario/usuario@ejemplo.com
 
 ###
 

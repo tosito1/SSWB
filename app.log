@@ -1349,3 +1349,66 @@ Argument `título`: Invalid value provided. Expected SortOrder, provided Object.
 [2025-04-10 06:55:16] INFO: 	GET /img/slider-3.jpg ::1
 [2025-04-10 06:55:16] INFO: 	GET /js/main.js ::1
 [2025-04-10 07:01:26] INFO: 	GET / ::1
+[2025-04-10 07:01:53] INFO: 	Servidor iniciado en http://localhost:8000
+[2025-04-10 07:01:53] INFO: 	Modo: desarrollo
+[2025-04-10 07:01:56] INFO: 	GET / ::1
+[2025-04-10 07:01:56] INFO: 	GET /css/styles.css ::1
+[2025-04-10 07:01:56] INFO: 	GET /img/logo-junta-andalucia.png ::1
+[2025-04-10 07:01:56] INFO: 	GET /img/slider-1.jpg ::1
+[2025-04-10 07:01:56] INFO: 	GET /img/slider-2.jpg ::1
+[2025-04-10 07:01:56] INFO: 	GET /img/slider-3.jpg ::1
+[2025-04-10 07:01:56] INFO: 	GET /js/main.js ::1
+[2025-04-10 07:02:48] INFO: 	GET /obras-singulares ::1
+[2025-04-10 07:02:48] INFO: 	GET /css/styles.css ::1
+[2025-04-10 07:02:48] INFO: 	GET /img/logo-junta-andalucia.png ::1
+[2025-04-10 07:02:48] INFO: 	GET /js/main.js ::1
+[2025-04-10 07:02:55] INFO: 	GET /usuarios/login ::1
+[2025-04-10 07:02:55] INFO: 	GET /css/styles.css ::1
+[2025-04-10 07:02:55] INFO: 	GET /img/logo-junta-andalucia.png ::1
+[2025-04-10 07:02:55] INFO: 	GET /js/main.js ::1
+[2025-04-10 07:03:31] INFO: 	GET / ::1
+[2025-04-10 07:03:31] INFO: 	GET /css/styles.css ::1
+[2025-04-10 07:03:31] INFO: 	GET /img/logo-junta-andalucia.png ::1
+[2025-04-10 07:03:31] INFO: 	GET /img/slider-1.jpg ::1
+[2025-04-10 07:03:31] INFO: 	GET /img/slider-2.jpg ::1
+[2025-04-10 07:03:31] INFO: 	GET /js/main.js ::1
+[2025-04-10 07:03:31] INFO: 	GET /img/slider-3.jpg ::1
+[2025-04-10 07:04:24] INFO: 	GET /usuarios/login ::1
+[2025-04-10 07:04:24] INFO: 	GET /css/styles.css ::1
+[2025-04-10 07:04:24] INFO: 	GET /img/logo-junta-andalucia.png ::1
+[2025-04-10 07:04:24] INFO: 	GET /js/main.js ::1
+[2025-04-10 07:04:29] INFO: 	POST /usuarios/login ::1
+[2025-04-10 07:04:29] INFO: 	Login correcto: usuario@ejemplo.com (USUARIO)
+[2025-04-10 07:04:29] INFO: 	GET / ::1
+[2025-04-10 07:04:30] INFO: 	Servidor iniciado en http://localhost:8000
+[2025-04-10 07:04:30] INFO: 	Modo: desarrollo
+[2025-04-10 07:04:30] INFO: 	GET /img/logo-junta-andalucia.png ::1
+[2025-04-10 07:04:30] INFO: 	GET /css/styles.css ::1
+[2025-04-10 07:04:47] INFO: 	GET /usuarios/logout ::1
+[2025-04-10 07:04:47] INFO: 	Logout: Usuario Normal
+[2025-04-10 07:04:47] INFO: 	GET / ::1
+[2025-04-10 07:04:48] INFO: 	GET /css/styles.css ::1
+[2025-04-10 07:04:48] INFO: 	GET /img/logo-junta-andalucia.png ::1
+[2025-04-10 07:04:48] INFO: 	GET /img/slider-1.jpg ::1
+[2025-04-10 07:04:48] INFO: 	GET /js/main.js ::1
+[2025-04-10 07:04:48] INFO: 	GET /img/slider-2.jpg ::1
+[2025-04-10 07:04:48] INFO: 	GET /img/slider-3.jpg ::1
+[2025-04-10 07:04:50] INFO: 	GET /usuarios/login ::1
+[2025-04-10 07:04:50] INFO: 	GET /css/styles.css ::1
+[2025-04-10 07:04:50] INFO: 	GET /img/logo-junta-andalucia.png ::1
+[2025-04-10 07:04:50] INFO: 	GET /js/main.js ::1
+[2025-04-10 07:05:00] INFO: 	POST /usuarios/login ::1
+[2025-04-10 07:05:00] INFO: 	Login correcto: admin@ejemplo.com (ADMINISTRADOR)
+[2025-04-10 07:05:00] INFO: 	GET / ::1
+[2025-04-10 07:05:00] INFO: 	GET /css/styles.css ::1
+[2025-04-10 07:05:00] INFO: 	GET /img/logo-junta-andalucia.png ::1
+[2025-04-10 07:05:00] INFO: 	GET /img/slider-1.jpg ::1
+[2025-04-10 07:05:00] INFO: 	GET /img/slider-2.jpg ::1
+[2025-04-10 07:05:00] INFO: 	GET /img/slider-3.jpg ::1
+[2025-04-10 07:05:00] INFO: 	GET /js/main.js ::1
+[2025-04-10 07:05:05] INFO: 	GET /admin/logs ::1
+[2025-04-10 07:05:05] INFO: 	Acceso a la página de logs por Administrador
+[2025-04-10 07:05:05] INFO: 	Acceso a la página de logs por admin@ejemplo.com
+[2025-04-10 07:05:05] INFO: 	GET /css/styles.css ::1
+[2025-04-10 07:05:05] INFO: 	GET /img/logo-junta-andalucia.png ::1
+[2025-04-10 07:05:06] INFO: 	GET /js/main.js ::1
