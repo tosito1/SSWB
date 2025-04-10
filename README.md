@@ -21,7 +21,7 @@ El proyecto consiste en una aplicación web que muestra información sobre el Mu
 
 1. Clona este repositorio:
    ```bash
-   git clone <url-del-repositorio>
+   git clone https://github.com/tosito1/SSWB
    ```
 
 2. Instala las dependencias:
@@ -104,12 +104,14 @@ El proyecto consiste en una aplicación web que muestra información sobre el Mu
 2. **Tarea 4**: Búsqueda de piezas arqueológicas con PostgreSQL
 3. **Tarea 5**: Autenticación con JWT y Cookies
 4. **Tarea 6**: Logging con Winston y Testing con Playwright
+5. **Tarea 7**: Implementación de API REST con endpoints para usuarios y obras
 
 Para más detalles sobre cada tarea, consulta los archivos README_Tarea_X.md correspondientes.
 
 ## Autor
 
-[Tu nombre]
+
+Antonio José Muriel Gálvez
 
 ## Licencia
 

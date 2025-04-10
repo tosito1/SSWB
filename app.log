@@ -1166,3 +1166,186 @@ Argument `título`: Invalid value provided. Expected SortOrder, provided Object.
 [2025-04-06 08:03:00] INFO: 	GET /js/main.js ::1
 [2025-04-06 08:03:17] INFO: 	Servidor iniciado en http://localhost:8000
 [2025-04-06 08:03:17] INFO: 	Modo: desarrollo
+[2025-04-06 08:04:20] INFO: 	GET /usuarios/login ::1
+[2025-04-06 08:04:20] INFO: 	GET /usuarios/login ::1
+[2025-04-06 08:04:20] INFO: 	GET /buscar?b%C3%BAsqueda=oro ::1
+[2025-04-06 08:04:20] INFO: 	GET /usuarios/registro ::1
+[2025-04-06 08:04:20] INFO: 	Búsqueda de obras: "oro"
+[2025-04-06 08:04:20] INFO: 	GET /css/styles.css ::1
+[2025-04-06 08:04:20] INFO: 	GET /css/styles.css ::1
+[2025-04-06 08:04:20] INFO: 	GET /css/styles.css ::1
+[2025-04-06 08:04:20] INFO: 	GET /img/logo-junta-andalucia.png ::1
+[2025-04-06 08:04:20] INFO: 	GET /img/logo-junta-andalucia.png ::1
+[2025-04-06 08:04:20] INFO: 	GET /img/logo-junta-andalucia.png ::1
+[2025-04-06 08:04:20] INFO: 	GET /js/main.js ::1
+[2025-04-06 08:04:20] INFO: 	GET /js/main.js ::1
+[2025-04-06 08:04:20] INFO: 	GET /js/main.js ::1
+[2025-04-06 08:04:20] INFO: 	GET /css/styles.css ::1
+[2025-04-06 08:04:20] INFO: 	GET /img/logo-junta-andalucia.png ::1
+[2025-04-06 08:04:20] INFO: 	GET /js/main.js ::1
+[2025-04-06 08:04:20] INFO: 	GET / ::1
+[2025-04-06 08:04:20] INFO: 	GET /css/styles.css ::1
+[2025-04-06 08:04:20] INFO: 	GET /img/logo-junta-andalucia.png ::1
+[2025-04-06 08:04:20] INFO: 	GET /img/slider-1.jpg ::1
+[2025-04-06 08:04:20] INFO: 	GET /img/slider-2.jpg ::1
+[2025-04-06 08:04:20] INFO: 	GET /js/main.js ::1
+[2025-04-06 08:04:20] INFO: 	GET /img/slider-3.jpg ::1
+[2025-04-06 08:04:21] INFO: 	GET / ::ffff:127.0.0.1
+[2025-04-06 08:04:21] INFO: 	GET /css/styles.css ::ffff:127.0.0.1
+[2025-04-06 08:04:21] INFO: 	GET /js/main.js ::ffff:127.0.0.1
+[2025-04-06 08:04:21] INFO: 	GET /img/slider-3.jpg ::ffff:127.0.0.1
+[2025-04-06 08:04:21] INFO: 	GET /img/logo-junta-andalucia.png ::ffff:127.0.0.1
+[2025-04-06 08:04:21] INFO: 	GET /img/slider-1.jpg ::ffff:127.0.0.1
+[2025-04-06 08:04:21] INFO: 	GET /img/slider-2.jpg ::ffff:127.0.0.1
+[2025-04-06 08:04:23] INFO: 	POST /usuarios/login ::1
+[2025-04-06 08:04:23] INFO: 	POST /usuarios/login ::1
+[2025-04-06 08:04:23] INFO: 	POST /usuarios/registro ::1
+[2025-04-06 08:04:23] WARN: 	Login fallido para usuario@incorrecto.com: credenciales incorrectas
+[2025-04-06 08:04:23] INFO: 	GET /css/styles.css ::1
+[2025-04-06 08:04:23] INFO: 	GET /img/logo-junta-andalucia.png ::1
+[2025-04-06 08:04:23] INFO: 	GET /js/main.js ::1
+[2025-04-06 08:04:24] INFO: 	Login correcto: admin@ejemplo.com (ADMINISTRADOR)
+[2025-04-06 08:04:24] INFO: 	Usuario registrado correctamente: usuario.test.1743962660393@ejemplo.com
+[2025-04-06 08:04:24] INFO: 	GET / ::1
+[2025-04-06 08:04:24] INFO: 	GET /css/styles.css ::1
+[2025-04-06 08:04:24] INFO: 	GET /img/logo-junta-andalucia.png ::1
+[2025-04-06 08:04:24] INFO: 	GET /js/main.js ::1
+[2025-04-06 08:04:24] INFO: 	GET /css/styles.css ::1
+[2025-04-06 08:04:24] INFO: 	GET /img/slider-1.jpg ::1
+[2025-04-06 08:04:24] INFO: 	GET /img/logo-junta-andalucia.png ::1
+[2025-04-06 08:04:24] INFO: 	GET /img/slider-2.jpg ::1
+[2025-04-06 08:04:24] INFO: 	GET /img/slider-3.jpg ::1
+[2025-04-06 08:04:24] INFO: 	GET /js/main.js ::1
+[2025-04-06 08:04:26] INFO: 	GET /favicon.ico ::ffff:127.0.0.1
+[2025-04-06 08:04:26] WARN: 	Página no encontrada: /favicon.ico
+[2025-04-06 08:04:29] INFO: 	GET /usuarios/login ::ffff:127.0.0.1
+[2025-04-06 08:04:30] INFO: 	GET /css/styles.css ::ffff:127.0.0.1
+[2025-04-06 08:04:30] INFO: 	GET /img/logo-junta-andalucia.png ::ffff:127.0.0.1
+[2025-04-06 08:04:30] INFO: 	GET /js/main.js ::ffff:127.0.0.1
+[2025-04-06 08:04:30] INFO: 	GET /favicon.ico ::ffff:127.0.0.1
+[2025-04-06 08:04:30] WARN: 	Página no encontrada: /favicon.ico
+[2025-04-06 08:04:30] INFO: 	GET / ::1
+[2025-04-06 08:04:31] INFO: 	GET /css/styles.css ::1
+[2025-04-06 08:04:31] INFO: 	GET /img/logo-junta-andalucia.png ::1
+[2025-04-06 08:04:31] INFO: 	GET /img/slider-1.jpg ::1
+[2025-04-06 08:04:31] INFO: 	GET /img/slider-2.jpg ::1
+[2025-04-06 08:04:31] INFO: 	GET /js/main.js ::1
+[2025-04-06 08:04:31] INFO: 	GET /img/slider-3.jpg ::1
+[2025-04-06 08:04:31] INFO: 	GET /usuarios/login ::ffff:127.0.0.1
+[2025-04-06 08:04:31] INFO: 	POST /usuarios/login ::ffff:127.0.0.1
+[2025-04-06 08:04:31] INFO: 	Login correcto: admin@ejemplo.com (ADMINISTRADOR)
+[2025-04-06 08:04:31] INFO: 	GET / ::ffff:127.0.0.1
+[2025-04-06 08:04:31] INFO: 	GET /css/styles.css ::ffff:127.0.0.1
+[2025-04-06 08:04:31] INFO: 	GET /js/main.js ::ffff:127.0.0.1
+[2025-04-06 08:04:31] INFO: 	GET /css/styles.css ::ffff:127.0.0.1
+[2025-04-06 08:04:31] INFO: 	GET /img/logo-junta-andalucia.png ::ffff:127.0.0.1
+[2025-04-06 08:04:31] INFO: 	GET /js/main.js ::ffff:127.0.0.1
+[2025-04-06 08:04:31] INFO: 	GET /img/logo-junta-andalucia.png ::ffff:127.0.0.1
+[2025-04-06 08:04:31] INFO: 	GET /img/slider-1.jpg ::ffff:127.0.0.1
+[2025-04-06 08:04:31] INFO: 	GET /img/slider-2.jpg ::ffff:127.0.0.1
+[2025-04-06 08:04:31] INFO: 	GET /img/slider-3.jpg ::ffff:127.0.0.1
+[2025-04-06 08:04:33] INFO: 	GET /favicon.ico ::ffff:127.0.0.1
+[2025-04-06 08:04:33] WARN: 	Página no encontrada: /favicon.ico
+[2025-04-06 08:04:33] INFO: 	GET /usuarios/registro ::ffff:127.0.0.1
+[2025-04-06 08:04:33] INFO: 	POST /usuarios/login ::ffff:127.0.0.1
+[2025-04-06 08:04:33] WARN: 	Login fallido para usuario@incorrecto.com: credenciales incorrectas
+[2025-04-06 08:04:33] INFO: 	GET /css/styles.css ::ffff:127.0.0.1
+[2025-04-06 08:04:33] INFO: 	GET /js/main.js ::ffff:127.0.0.1
+[2025-04-06 08:04:33] INFO: 	GET /img/logo-junta-andalucia.png ::ffff:127.0.0.1
+[2025-04-06 08:04:33] INFO: 	GET /css/styles.css ::ffff:127.0.0.1
+[2025-04-06 08:04:33] INFO: 	GET /img/logo-junta-andalucia.png ::ffff:127.0.0.1
+[2025-04-06 08:04:33] INFO: 	GET /js/main.js ::ffff:127.0.0.1
+[2025-04-06 08:04:34] INFO: 	GET /usuarios/login ::1
+[2025-04-06 08:04:34] INFO: 	GET /css/styles.css ::1
+[2025-04-06 08:04:34] INFO: 	GET /img/logo-junta-andalucia.png ::1
+[2025-04-06 08:04:34] INFO: 	GET /js/main.js ::1
+[2025-04-06 08:04:34] INFO: 	GET /favicon.ico ::ffff:127.0.0.1
+[2025-04-06 08:04:34] WARN: 	Página no encontrada: /favicon.ico
+[2025-04-06 08:04:34] INFO: 	POST /usuarios/registro ::ffff:127.0.0.1
+[2025-04-06 08:04:35] INFO: 	Usuario registrado correctamente: usuario.test.1743962673214@ejemplo.com
+[2025-04-06 08:04:35] INFO: 	GET /css/styles.css ::ffff:127.0.0.1
+[2025-04-06 08:04:35] INFO: 	GET /js/main.js ::ffff:127.0.0.1
+[2025-04-06 08:04:35] INFO: 	GET /img/logo-junta-andalucia.png ::ffff:127.0.0.1
+[2025-04-06 08:04:35] INFO: 	GET /buscar?b%C3%BAsqueda=oro ::ffff:127.0.0.1
+[2025-04-06 08:04:35] INFO: 	Búsqueda de obras: "oro"
+[2025-04-06 08:04:35] INFO: 	POST /usuarios/login ::1
+[2025-04-06 08:04:35] INFO: 	GET /css/styles.css ::ffff:127.0.0.1
+[2025-04-06 08:04:35] INFO: 	GET /js/main.js ::ffff:127.0.0.1
+[2025-04-06 08:04:35] INFO: 	Login correcto: admin@ejemplo.com (ADMINISTRADOR)
+[2025-04-06 08:04:35] INFO: 	GET / ::1
+[2025-04-06 08:04:35] INFO: 	GET /css/styles.css ::1
+[2025-04-06 08:04:35] INFO: 	GET /img/logo-junta-andalucia.png ::1
+[2025-04-06 08:04:35] INFO: 	GET /img/slider-1.jpg ::1
+[2025-04-06 08:04:35] INFO: 	GET /js/main.js ::1
+[2025-04-06 08:04:35] INFO: 	GET /img/slider-2.jpg ::1
+[2025-04-06 08:04:35] INFO: 	GET /img/slider-3.jpg ::1
+[2025-04-06 08:04:35] INFO: 	GET /img/logo-junta-andalucia.png ::ffff:127.0.0.1
+[2025-04-06 08:04:36] INFO: 	GET /favicon.ico ::ffff:127.0.0.1
+[2025-04-06 08:04:36] WARN: 	Página no encontrada: /favicon.ico
+[2025-04-06 08:04:38] INFO: 	GET /usuarios/login ::1
+[2025-04-06 08:04:38] INFO: 	GET /buscar?b%C3%BAsqueda=oro ::1
+[2025-04-06 08:04:38] INFO: 	Búsqueda de obras: "oro"
+[2025-04-06 08:04:38] INFO: 	GET /css/styles.css ::1
+[2025-04-06 08:04:38] INFO: 	GET /img/logo-junta-andalucia.png ::1
+[2025-04-06 08:04:38] INFO: 	GET /js/main.js ::1
+[2025-04-06 08:04:39] INFO: 	GET /css/styles.css ::1
+[2025-04-06 08:04:39] INFO: 	GET /img/logo-junta-andalucia.png ::1
+[2025-04-06 08:04:39] INFO: 	GET /js/main.js ::1
+[2025-04-06 08:04:40] INFO: 	POST /usuarios/login ::1
+[2025-04-06 08:04:40] WARN: 	Login fallido para usuario@incorrecto.com: credenciales incorrectas
+[2025-04-06 08:04:40] INFO: 	GET /css/styles.css ::1
+[2025-04-06 08:04:40] INFO: 	GET /img/logo-junta-andalucia.png ::1
+[2025-04-06 08:04:40] INFO: 	GET /js/main.js ::1
+[2025-04-06 08:04:40] INFO: 	GET /usuarios/registro ::1
+[2025-04-06 08:04:40] INFO: 	GET /css/styles.css ::1
+[2025-04-06 08:04:40] INFO: 	GET /img/logo-junta-andalucia.png ::1
+[2025-04-06 08:04:40] INFO: 	GET /js/main.js ::1
+[2025-04-06 08:04:41] INFO: 	POST /usuarios/registro ::1
+[2025-04-06 08:04:42] INFO: 	Usuario registrado correctamente: usuario.test.1743962680080@ejemplo.com
+[2025-04-06 08:04:42] INFO: 	GET /css/styles.css ::1
+[2025-04-06 08:04:42] INFO: 	GET /img/logo-junta-andalucia.png ::1
+[2025-04-06 08:04:42] INFO: 	GET /js/main.js ::1
+[2025-04-06 08:06:28] INFO: 	GET /buscar?b%C3%BAsqueda=espada ::1
+[2025-04-06 08:06:28] INFO: 	Búsqueda de obras: "espada"
+[2025-04-06 08:06:28] INFO: 	GET /css/styles.css ::1
+[2025-04-06 08:06:28] INFO: 	GET /img/logo-junta-andalucia.png ::1
+[2025-04-06 08:06:28] INFO: 	GET /js/main.js ::1
+[2025-04-10 06:45:58] INFO: 	Servidor iniciado en http://localhost:8000
+[2025-04-10 06:45:58] INFO: 	Modo: desarrollo
+[2025-04-10 06:51:14] INFO: 	GET / ::1
+[2025-04-10 06:51:14] INFO: 	GET /css/styles.css ::1
+[2025-04-10 06:51:14] INFO: 	GET /img/logo-junta-andalucia.png ::1
+[2025-04-10 06:51:14] INFO: 	GET /img/slider-1.jpg ::1
+[2025-04-10 06:51:14] INFO: 	GET /img/slider-2.jpg ::1
+[2025-04-10 06:51:14] INFO: 	GET /img/slider-3.jpg ::1
+[2025-04-10 06:51:14] INFO: 	GET /js/main.js ::1
+[2025-04-10 06:51:20] INFO: 	GET /favicon.ico ::1
+[2025-04-10 06:51:20] WARN: 	Página no encontrada: /favicon.ico
+[2025-04-10 06:51:37] INFO: 	GET /obras-singulares/2 ::1
+[2025-04-10 06:51:37] INFO: 	GET /css/styles.css ::1
+[2025-04-10 06:51:37] INFO: 	GET /img/logo-junta-andalucia.png ::1
+[2025-04-10 06:51:37] INFO: 	GET /js/main.js ::1
+[2025-04-10 06:51:44] INFO: 	GET /api/usuario/pp@pp.com ::1
+[2025-04-10 06:51:59] INFO: 	GET /api/usuario/ ::1
+[2025-04-10 06:51:59] WARN: 	Página no encontrada: /api/usuario/
+[2025-04-10 06:51:59] INFO: 	GET /css/styles.css ::1
+[2025-04-10 06:51:59] INFO: 	GET /img/logo-junta-andalucia.png ::1
+[2025-04-10 06:51:59] INFO: 	GET /js/main.js ::1
+[2025-04-10 06:52:15] INFO: 	GET /api/obra/cuantas ::1
+[2025-04-10 06:52:26] INFO: 	GET /api/obra/?desde=0&hasta=5 ::1
+[2025-04-10 06:54:46] INFO: 	GET /api/usuario/admin@ejemplo.com ::1
+[2025-04-10 06:55:15] INFO: 	GET / ::1
+[2025-04-10 06:55:15] INFO: 	GET /css/styles.css ::1
+[2025-04-10 06:55:15] INFO: 	GET /img/logo-junta-andalucia.png ::1
+[2025-04-10 06:55:15] INFO: 	GET /img/slider-1.jpg ::1
+[2025-04-10 06:55:15] INFO: 	GET /img/slider-2.jpg ::1
+[2025-04-10 06:55:15] INFO: 	GET /img/slider-3.jpg ::1
+[2025-04-10 06:55:15] INFO: 	GET /js/main.js ::1
+[2025-04-10 06:55:16] INFO: 	GET / ::1
+[2025-04-10 06:55:16] INFO: 	GET /css/styles.css ::1
+[2025-04-10 06:55:16] INFO: 	GET /img/logo-junta-andalucia.png ::1
+[2025-04-10 06:55:16] INFO: 	GET /img/slider-1.jpg ::1
+[2025-04-10 06:55:16] INFO: 	GET /img/slider-2.jpg ::1
+[2025-04-10 06:55:16] INFO: 	GET /img/slider-3.jpg ::1
+[2025-04-10 06:55:16] INFO: 	GET /js/main.js ::1
+[2025-04-10 07:01:26] INFO: 	GET / ::1

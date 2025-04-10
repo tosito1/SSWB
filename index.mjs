@@ -13,6 +13,7 @@ import readline from 'readline'
 // Importar routers
 import obrasRouter from "./routes/obras.mjs"
 import usuariosRouter from "./routes/usuarios.mjs"
+import apiRouter from "./routes/api.mjs"
 
 // Inicializar Prisma Client
 const prisma = new PrismaClient()
@@ -137,6 +138,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 // Configurar routers
 app.use("/obras", obrasRouter);
 app.use("/usuarios", usuariosRouter);
+app.use("/api", apiRouter);
 
 // Ruta de búsqueda directa (para evitar problemas con el router)
 app.get('/buscar', async (req, res) => {

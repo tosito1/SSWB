@@ -1,0 +1,40 @@
+// test-api.http
+
+// Comprobar si existe un usuario
+GET http://localhost:8000/api/usuario/pp@pp.com
+
+###
+
+// Comprobar un usuario que no existe
+GET http://localhost:8000/api/usuario/noexiste@example.com
+
+###
+
+// Obtener el número total de obras
+GET http://localhost:8000/api/obra/cuantas
+
+###
+
+// Obtener obras paginadas (primeras 5)
+GET http://localhost:8000/api/obra/?desde=0&hasta=5
+
+###
+
+// Obtener obras paginadas (siguientes 5)
+GET http://localhost:8000/api/obra/?desde=5&hasta=10
+
+###
+
+// Obtener datos de una obra específica
+GET http://localhost:8000/api/obra/1
+
+###
+
+// Intentar obtener una obra que no existe
+GET http://localhost:8000/api/obra/999
+
+###
+
+// Eliminar una obra (cuidado: esta operación es destructiva)
+// Descomenta la siguiente línea solo cuando estés seguro de querer eliminar la obra
+// DELETE http://localhost:8000/api/obra/12
