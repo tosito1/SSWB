@@ -1412,3 +1412,94 @@ Argument `título`: Invalid value provided. Expected SortOrder, provided Object.
 [2025-04-10 07:05:05] INFO: 	GET /css/styles.css ::1
 [2025-04-10 07:05:05] INFO: 	GET /img/logo-junta-andalucia.png ::1
 [2025-04-10 07:05:06] INFO: 	GET /js/main.js ::1
+[2025-04-10 07:09:32] INFO: 	GET /api/usuario/usuario@ejemplo.com ::ffff:127.0.0.1
+[2025-04-10 07:16:24] INFO: 	GET /api/obra/cuantas ::ffff:127.0.0.1
+[2025-04-10 07:28:26] INFO: 	Servidor iniciado en http://localhost:8000
+[2025-04-10 07:28:26] INFO: 	Modo: desarrollo
+[2025-04-10 07:31:43] INFO: 	Servidor iniciado en http://localhost:8000
+[2025-04-10 07:31:43] INFO: 	Modo: desarrollo
+[2025-04-10 07:33:29] INFO: 	Servidor iniciado en http://localhost:8000
+[2025-04-10 07:33:29] INFO: 	Modo: desarrollo
+[2025-04-10 07:33:52] INFO: 	Servidor iniciado en http://localhost:8000
+[2025-04-10 07:33:52] INFO: 	Modo: desarrollo
+[2025-04-10 07:33:52] INFO: 	Documentación de la API disponible en http://localhost:8000/api-docs
+[2025-04-10 07:34:30] INFO: 	Servidor iniciado en http://localhost:8000
+[2025-04-10 07:34:30] INFO: 	Modo: desarrollo
+[2025-04-10 07:34:30] INFO: 	Documentación de la API disponible en http://localhost:8000/api-docs
+[2025-04-10 07:35:20] INFO: 	Servidor iniciado en http://localhost:8000
+[2025-04-10 07:35:20] INFO: 	Modo: desarrollo
+[2025-04-10 07:35:20] INFO: 	Documentación de la API disponible en http://localhost:8000/api-docs
+[2025-04-10 07:35:40] INFO: 	GET /?vscodeBrowserReqId=1744306540580 ::1
+[2025-04-10 07:35:40] INFO: 	GET /css/styles.css ::1
+[2025-04-10 07:35:40] INFO: 	GET /img/slider-1.jpg ::1
+[2025-04-10 07:35:40] INFO: 	GET /img/logo-junta-andalucia.png ::1
+[2025-04-10 07:35:40] INFO: 	GET /img/slider-2.jpg ::1
+[2025-04-10 07:35:40] INFO: 	GET /img/slider-3.jpg ::1
+[2025-04-10 07:35:40] INFO: 	GET /js/main.js ::1
+[2025-04-10 07:35:46] INFO: 	GET / ::1
+[2025-04-10 07:35:46] INFO: 	GET /css/styles.css ::1
+[2025-04-10 07:35:46] INFO: 	GET /img/logo-junta-andalucia.png ::1
+[2025-04-10 07:35:46] INFO: 	GET /img/slider-1.jpg ::1
+[2025-04-10 07:35:46] INFO: 	GET /img/slider-2.jpg ::1
+[2025-04-10 07:35:46] INFO: 	GET /img/slider-3.jpg ::1
+[2025-04-10 07:35:46] INFO: 	GET /js/main.js ::1
+[2025-04-10 07:35:46] INFO: 	GET /favicon.ico ::1
+[2025-04-10 07:35:46] WARN: 	Página no encontrada: /favicon.ico
+[2025-04-10 07:36:10] INFO: 	Servidor iniciado en http://localhost:8000
+[2025-04-10 07:36:10] INFO: 	Modo: desarrollo
+[2025-04-10 07:36:10] INFO: 	Documentación de la API disponible en http://localhost:8000/api-docs
+[2025-04-10 07:37:25] INFO: 	Servidor iniciado en http://localhost:8000
+[2025-04-10 07:37:25] INFO: 	Modo: desarrollo
+[2025-04-10 07:37:25] INFO: 	Documentación de la API disponible en http://localhost:8000/api-docs
+[2025-04-10 07:37:30] INFO: 	GET /api-docs ::1
+[2025-04-10 07:37:30] WARN: 	Página no encontrada: /api-docs
+[2025-04-10 07:37:30] INFO: 	GET /css/styles.css ::1
+[2025-04-10 07:37:30] INFO: 	GET /img/logo-junta-andalucia.png ::1
+[2025-04-10 07:37:30] INFO: 	GET /js/main.js ::1
+[2025-04-10 07:38:33] INFO: 	GET /api-docs ::1
+[2025-04-10 07:38:33] WARN: 	Página no encontrada: /api-docs
+[2025-04-10 07:38:33] INFO: 	GET /css/styles.css ::1
+[2025-04-10 07:38:33] INFO: 	GET /img/logo-junta-andalucia.png ::1
+[2025-04-10 07:38:33] INFO: 	GET /js/main.js ::1
+[2025-04-10 07:41:16] INFO: 	Servidor iniciado en http://localhost:8000
+[2025-04-10 07:41:16] INFO: 	Modo: desarrollo
+[2025-04-10 07:41:16] INFO: 	Documentación de la API disponible en http://localhost:8000/api-docs
+[2025-04-10 07:44:03] INFO: 	Servidor iniciado en http://localhost:8000
+[2025-04-10 07:44:03] INFO: 	Modo: desarrollo
+[2025-04-10 07:44:03] INFO: 	Documentación de la API disponible en http://localhost:8000/api-docs
+[2025-04-10 07:45:01] INFO: 	Servidor iniciado en http://localhost:8000
+[2025-04-10 07:45:01] INFO: 	Modo: desarrollo
+[2025-04-10 07:45:01] INFO: 	Documentación de la API disponible en http://localhost:8000/api-docs
+[2025-04-10 07:45:14] INFO: 	GET /api-docs ::1
+[2025-04-10 07:45:14] WARN: 	Página no encontrada: /api-docs
+[2025-04-10 07:45:14] INFO: 	GET /css/styles.css ::1
+[2025-04-10 07:45:14] INFO: 	GET /img/logo-junta-andalucia.png ::1
+[2025-04-10 07:45:14] INFO: 	GET /js/main.js ::1
+[2025-04-10 07:46:55] INFO: 	Servidor iniciado en http://localhost:8000
+[2025-04-10 07:46:55] INFO: 	Modo: desarrollo
+[2025-04-10 07:46:55] INFO: 	Documentación de la API disponible en http://localhost:8000/api-docs
+[2025-04-10 07:46:55] INFO: 	Servidor iniciado en http://localhost:8000
+[2025-04-10 07:46:55] INFO: 	Modo: desarrollo
+[2025-04-10 07:46:55] INFO: 	Documentación de la API disponible en http://localhost:8000/api-docs
+[2025-04-10 07:46:58] INFO: 	GET /api-docs ::1
+[2025-04-10 07:46:58] WARN: 	Página no encontrada: /api-docs
+[2025-04-10 07:46:58] INFO: 	GET /css/styles.css ::1
+[2025-04-10 07:46:58] INFO: 	GET /img/logo-junta-andalucia.png ::1
+[2025-04-10 07:46:58] INFO: 	GET /js/main.js ::1
+[2025-04-10 07:47:13] INFO: 	GET /usuarios/logout ::1
+[2025-04-10 07:47:13] INFO: 	Logout: Administrador
+[2025-04-10 07:47:13] INFO: 	GET / ::1
+[2025-04-10 07:47:14] INFO: 	GET /css/styles.css ::1
+[2025-04-10 07:47:14] INFO: 	GET /img/logo-junta-andalucia.png ::1
+[2025-04-10 07:47:14] INFO: 	GET /img/slider-1.jpg ::1
+[2025-04-10 07:47:14] INFO: 	GET /img/slider-2.jpg ::1
+[2025-04-10 07:47:14] INFO: 	GET /img/slider-3.jpg ::1
+[2025-04-10 07:47:14] INFO: 	GET /js/main.js ::1
+[2025-04-10 07:47:18] INFO: 	GET /api-docs ::1
+[2025-04-10 07:47:18] WARN: 	Página no encontrada: /api-docs
+[2025-04-10 07:47:18] INFO: 	GET /css/styles.css ::1
+[2025-04-10 07:47:18] INFO: 	GET /img/logo-junta-andalucia.png ::1
+[2025-04-10 07:47:18] INFO: 	GET /js/main.js ::1
+[2025-04-10 07:51:44] INFO: 	Swagger documentation initialized successfully
+[2025-04-10 07:52:01] INFO: 	Swagger documentation initialized successfully
+[2025-04-10 07:52:28] INFO: 	Swagger documentation initialized successfully

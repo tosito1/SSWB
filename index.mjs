@@ -15,6 +15,12 @@ import obrasRouter from "./routes/obras.mjs"
 import usuariosRouter from "./routes/usuarios.mjs"
 import apiRouter from "./routes/api.mjs"
 
+import swaggerJsdoc from "swagger-jsdoc"
+import swaggerUi from "swagger-ui-express"
+
+
+
+
 // Inicializar Prisma Client
 const prisma = new PrismaClient()
 
@@ -37,6 +43,61 @@ app.use((req, res, next) => {
 	logger.info(`${req.method} ${req.url} ${req.ip}`);
 	next();
 });
+
+// Configuración de Swagger 
+const options = {
+	definition: {
+		openapi: "3.0.0",
+		info: {
+			title: "API del Museo Arqueológico de Granada",
+			version: "0.1.0",
+			description:
+				"API para el Museo Arqueológico y Etnológico de Granada",
+			license: {
+				name: "MIT",
+				url: "https://spdx.org/licenses/MIT.html",
+			},
+			contact: {
+				name: "Museo Arqueológico de Granada",
+				url: "http://localhost:8000",
+				email: "info@museoarqueologicogranada.es",
+			},
+		},
+		servers: [
+			{
+				url: `http://localhost:${PORT}`,
+			},
+		],
+	},
+	// Use an absolute path and add error handling
+	apis: [path.join(__dirname, "./routes/*.mjs")],
+	failOnErrors: false, // Don't crash on errors
+};
+
+// Add error handling for Swagger initialization
+let specs;
+try {
+	specs = swaggerJsdoc(options);
+	app.use(
+		"/api-docs",
+		swaggerUi.serve,
+		swaggerUi.setup(specs, { explorer: true })
+	);
+	logger.info("Swagger documentation initialized successfully");
+} catch (error) {
+	logger.error(`Error initializing Swagger: ${error.message}`);
+	// Continue without Swagger if there's an error
+	specs = {
+		openapi: "3.0.0",
+		info: { title: "API Documentation", version: "1.0.0" },
+		paths: {}
+	};
+	app.use(
+		"/api-docs",
+		swaggerUi.serve,
+		swaggerUi.setup(specs, { explorer: true })
+	);
+}
 
 // Configurar Nunjucks como motor de plantillas
 const isDev = process.env.NODE_ENV !== 'production'
@@ -681,5 +742,6 @@ app.use((err, req, res, next) => {
 app.listen(PORT, () => {
 	logger.info(`Servidor iniciado en http://localhost:${PORT}`);
 	logger.info(`Modo: ${process.env.NODE_ENV !== 'production' ? 'desarrollo' : 'producción'}`);
-}) 
+	logger.info(`Documentación de la API disponible en http://localhost:${PORT}/api-docs`);
+});
 
