@@ -106,8 +106,6 @@ El proyecto consiste en una aplicación web que muestra información sobre el Mu
 4. **Tarea 6**: Logging con Winston y Testing con Playwright
 5. **Tarea 7**: Implementación de API REST con endpoints para usuarios y obras
 
-Para más detalles sobre cada tarea, consulta los archivos README_Tarea_X.md correspondientes.
-
 ## Autor
 
 
