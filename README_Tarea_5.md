@@ -18,11 +18,6 @@ Esta tarea implementa un sistema de autenticación de usuarios utilizando tokens
 npx prisma migrate dev --name anadido_usuario
 ```
 
-En Windows con PowerShell (si hay problemas de permisos):
-```
-cmd.exe /c "npx prisma migrate dev --name anadido_usuario"
-```
-
 2. Instalar las dependencias necesarias:
 
 ```bash
@@ -47,11 +42,6 @@ Este método utiliza `prisma/seed.mjs` para crear un usuario administrador y un 
 node prisma/seed.mjs
 ```
 
-En Windows (si hay problemas de permisos):
-```
-cmd.exe /c "node prisma/seed.mjs"
-```
-
 Credenciales:
 - Administrador: admin@ejemplo.com / admin123
 - Usuario normal: usuario@ejemplo.com / usuario123
@@ -63,8 +53,6 @@ También puedes usar los scripts `crearAdmin.js` o `createAdmin.js` (según la v
 ```bash
 node createAdmin.js
 ```
-
-**Nota**: Estos scripts pueden requerir ajustes para funcionar con ESM/CommonJS dependiendo de tu configuración.
 
 ### 3. Registrando usuarios desde la interfaz
 
@@ -93,44 +81,6 @@ Las plantillas tienen acceso a:
 - `usuario`: Nombre del usuario autenticado
 - `rol`: Rol del usuario (USUARIO o ADMINISTRADOR)
 
-Ejemplo:
-
-```nunjucks
-{% if usuario %}
-  <p>Hola, {{ usuario }}</p>
-  {% if rol === 'ADMINISTRADOR' %}
-    <p>Tienes acceso de administrador</p>
-  {% endif %}
-{% else %}
-  <p>No has iniciado sesión</p>
-{% endif %}
-```
-
 ## Proteger rutas
 
 Para proteger rutas y permitir acceso solo a usuarios autenticados o con roles específicos, puedes crear middlewares adicionales.
-
-Ejemplo para proteger una ruta solo para usuarios autenticados:
-
-```javascript
-const requireAuth = (req, res, next) => {
-  if (!req.usuario) {
-    return res.redirect('/usuarios/login');
-  }
-  next();
-};
-
-// Uso en las rutas
-app.get('/ruta-protegida', requireAuth, (req, res) => {
-  // Solo usuarios autenticados pueden acceder aquí
-});
-```
-
-## Problemas comunes
-
-### Error "Cannot use import statement outside a module"
-
-Si encuentras este error con los scripts de creación de usuarios, prueba a:
-1. Usar `prisma/seed.mjs` que está configurado correctamente para ESM
-2. Cambiar la extensión del archivo a `.mjs` para scripts con import/export
-3. Cambiar de import/export a require/module.exports según corresponda 

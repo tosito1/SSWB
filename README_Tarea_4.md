@@ -21,34 +21,14 @@ Se utiliza Docker para ejecutar PostgreSQL. Asegúrate de tener Docker y Docker 
    docker-compose up -d
    ```
 
-   En Windows con PowerShell (si hay problemas de permisos):
-   ```
-   cmd.exe /c "docker-compose up -d"
-   ```
-
 ### 2. Migrar la base de datos
 
-1. Elimina las migraciones anteriores de SQLite (si existían):
-   ```bash
-   rm -rf ./prisma/migrations
-   ```
-
-   En Windows:
-   ```
-   rd /s /q prisma\migrations
-   ```
-
-2. Crea nuevas migraciones para PostgreSQL:
+1. Crea nuevas migraciones para PostgreSQL:
    ```bash
    npx prisma migrate dev --name a_postgress
    ```
 
-   En Windows (si hay problemas de permisos):
-   ```
-   cmd.exe /c "npx prisma migrate dev --name a_postgress"
-   ```
-
-3. Ejecuta el script de población de datos:
+2. Ejecuta el script de población de datos:
    ```bash
    node insertData.js
    ```
@@ -79,32 +59,4 @@ Para iniciar la aplicación:
 npm run dev
 ```
 
-En Windows con PowerShell (si hay problemas de permisos):
-```
-cmd.exe /c "npm run dev"
-```
-
 La aplicación estará disponible en http://localhost:8000
-
-## Problemas comunes y soluciones
-
-### Error "Can't reach database server at localhost:5432"
-
-Si encuentras este error al migrar la base de datos, asegúrate de que:
-1. El contenedor Docker de PostgreSQL está en funcionamiento (`docker ps`)
-2. Las variables de entorno están configuradas correctamente en `.env`
-3. No hay otro servicio usando el puerto 5432
-
-### Error en el archivo docker-compose.yml
-
-Si encuentras errores al iniciar el contenedor Docker, verifica que:
-1. El archivo docker-compose.yml no tiene problemas de formato (espacios, tabulaciones)
-2. Estás ejecutando el comando desde el directorio raíz del proyecto
-3. Docker Desktop está instalado y funcionando correctamente
-
-### Error al insertar datos en la base de datos
-
-Si encuentras errores al ejecutar el script `insertData.js`, asegúrate de que:
-1. El esquema de la tabla en Prisma coincide con los campos que estás intentando insertar
-2. El archivo JSON con los datos existe y está bien formateado
-3. La base de datos está accesible 

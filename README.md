@@ -108,7 +108,6 @@ El proyecto consiste en una aplicación web que muestra información sobre el Mu
 
 ## Autor
 
-
 Antonio José Muriel Gálvez
 
 ## Licencia

@@ -1503,3 +1503,21 @@ Argument `título`: Invalid value provided. Expected SortOrder, provided Object.
 [2025-04-10 07:51:44] INFO: 	Swagger documentation initialized successfully
 [2025-04-10 07:52:01] INFO: 	Swagger documentation initialized successfully
 [2025-04-10 07:52:28] INFO: 	Swagger documentation initialized successfully
+[2025-04-10 07:53:30] INFO: 	Swagger documentation initialized successfully
+[2025-04-10 07:53:30] INFO: 	Servidor iniciado en http://localhost:8000
+[2025-04-10 07:53:30] INFO: 	Modo: desarrollo
+[2025-04-10 07:53:30] INFO: 	Documentación de la API disponible en http://localhost:8000/api-docs
+[2025-04-10 07:53:35] INFO: 	GET / ::1
+[2025-04-10 07:53:35] INFO: 	GET /css/styles.css ::1
+[2025-04-10 07:53:35] INFO: 	GET /img/logo-junta-andalucia.png ::1
+[2025-04-10 07:53:35] INFO: 	GET /img/slider-1.jpg ::1
+[2025-04-10 07:53:35] INFO: 	GET /img/slider-2.jpg ::1
+[2025-04-10 07:53:35] INFO: 	GET /img/slider-3.jpg ::1
+[2025-04-10 07:53:35] INFO: 	GET /js/main.js ::1
+[2025-04-10 07:53:41] INFO: 	GET /api-docs ::1
+[2025-04-10 07:53:41] INFO: 	GET /api-docs/ ::1
+[2025-04-10 07:53:42] INFO: 	GET /api-docs/swagger-ui.css ::1
+[2025-04-10 07:53:42] INFO: 	GET /api-docs/swagger-ui-bundle.js ::1
+[2025-04-10 07:53:42] INFO: 	GET /api-docs/swagger-ui-standalone-preset.js ::1
+[2025-04-10 07:53:42] INFO: 	GET /api-docs/swagger-ui-init.js ::1
+[2025-04-10 07:53:42] INFO: 	GET /api-docs/favicon-32x32.png ::1
