@@ -52,15 +52,15 @@
                     <div class="col-md-6 col-lg-4 mb-4 obra-item" data-category="all">
                         <div class="card h-100 shadow-sm">
                             <div class="position-relative overflow-hidden">
-                                {% if obra.imágen %}
-                                    {% if obra.imágen.startsWith('http') %}
-                                        <a href="{{ obra.imágen }}" data-fancybox="gallery" data-caption="{{ obra.título }}">
-                                            <img src="{{ obra.imágen }}" class="card-img-top" alt="{{ obra.título }}" 
+                                {% if obra.imagen %}
+                                    {% if obra.imagen.startsWith('http') %}
+                                        <a href="{{ obra.imagen }}" data-fancybox="gallery" data-caption="{{ obra.titulo }}">
+                                            <img src="{{ obra.imagen }}" class="card-img-top" alt="{{ obra.titulo }}" 
                                                 style="height: 220px; object-fit: cover;">
                                         </a>
                                     {% else %}
-                                        <a href="/img/{{ obra.imágen }}" data-fancybox="gallery" data-caption="{{ obra.título }}">
-                                            <img src="/img/{{ obra.imágen }}" class="card-img-top" alt="{{ obra.título }}" 
+                                        <a href="/img/{{ obra.imagen }}" data-fancybox="gallery" data-caption="{{ obra.titulo }}">
+                                            <img src="/img/{{ obra.imagen }}" class="card-img-top" alt="{{ obra.titulo }}" 
                                                 style="height: 220px; object-fit: cover;">
                                         </a>
                                     {% endif %}
@@ -72,10 +72,10 @@
                                 {% endif %}
                             </div>
                             <div class="card-body d-flex flex-column">
-                                <h3 class="card-title h5">{{ obra.título }}</h3>
+                                <h3 class="card-title h5">{{ obra.titulo }}</h3>
                                 <p class="card-text flex-grow-1">
-                                    {% if obra.descripción %}
-                                        {{ obra.descripción | truncate(120) }}
+                                    {% if obra.descripcion %}
+                                        {{ obra.descripcion | truncate(120) }}
                                     {% else %}
                                         <span class="text-muted">Sin descripción disponible</span>
                                     {% endif %}
@@ -253,4 +253,4 @@
         });
     });
 </script>
-{% endblock %} 
+{% endblock %}

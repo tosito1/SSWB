@@ -10,9 +10,9 @@ datasource db {
 
 model Obra {
   id           Int    @id @default(autoincrement())
-  título      String @unique
-  imágen      String
-  descripción String
+  titulo      String @unique
+  imagen      String
+  descripcion String
   procedencia  String
   comentario   String
 }

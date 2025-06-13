@@ -9,6 +9,7 @@ import cookieParser from 'cookie-parser'
 import jwt from 'jsonwebtoken'
 import logger from './logger.mjs'
 import readline from 'readline'
+import cors from 'cors'
 
 // Importar routers
 import obrasRouter from "./routes/obras.mjs"
@@ -37,6 +38,13 @@ const PORT = process.env.PORT || 8000
 // Middlewares para formularios y cookies
 app.use(express.urlencoded({ extended: true })) // para poner los parámetros del form en el request
 app.use(cookieParser())
+
+// Configurar CORS
+app.use(cors({
+	origin: 'http://localhost:4321', // URL del frontend de Astro
+	methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+	allowedHeaders: ['Content-Type', 'Authorization']
+}))
 
 // Middleware de logging para peticiones HTTP
 app.use((req, res, next) => {

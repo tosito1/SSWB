@@ -15,15 +15,15 @@ router.get('/buscar', async (req, res) => { // /obras/buscar
     const obras = await prisma.obra.findMany({
       where: {
         OR: [
-          { título: { contains: búsqueda, mode: 'insensitive' } },
-          { descripción: { contains: búsqueda, mode: 'insensitive' } },
+          { titulo: { contains: búsqueda, mode: 'insensitive' } },
+          { descripcion: { contains: búsqueda, mode: 'insensitive' } },
           { procedencia: { contains: búsqueda, mode: 'insensitive' } },
           { comentario: { contains: búsqueda, mode: 'insensitive' } }
         ]
       },
       // Ordenar por título
       orderBy: {
-        título: 'asc'
+        titulo: 'asc'
       },
       // Limitar a los primeros 3 resultados
       take: 3
@@ -43,4 +43,4 @@ router.get('/buscar', async (req, res) => { // /obras/buscar
   }
 });
 
-export default router; 
+export default router;

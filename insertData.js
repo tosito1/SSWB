@@ -8,9 +8,19 @@ async function main() {
     // Leer el archivo JSON
     console.log('Leyendo archivo info_obras.json...');
     const data = await fs.readFile('info_obras.json', 'utf8');
-    const obras = JSON.parse(data);
-    
-    console.log(`Se encontraron ${obras.length} obras para insertar.`);
+    let obras = JSON.parse(data);
+
+    // Filtrar títulos duplicados en el JSON
+    const titulosUnicos = new Set();
+    obras = obras.filter(obra => {
+      if (titulosUnicos.has(obra.titulo)) {
+        return false;
+      }
+      titulosUnicos.add(obra.titulo);
+      return true;
+    });
+
+    console.log(`Se encontraron ${obras.length} obras únicas para insertar.`);
     
     // Limpiar la base de datos antes de insertar nuevos datos
     console.log('Limpiando la base de datos...');
@@ -23,9 +33,9 @@ async function main() {
     for (const obra of obras) {
       await prisma.obra.create({
         data: {
-          título: obra.titulo || 'Sin título',
-          imágen: obra.imagen || '',
-          descripción: obra.descripcion || '',
+          titulo: obra.titulo || 'Sin título',
+          imagen: obra.imagen || '',
+          descripcion: obra.descripcion || '',
           procedencia: obra.procedencia || '',
           comentario: obra.comentario || ''
         }
@@ -60,4 +70,4 @@ main()
   })
   .finally(async () => {
     await prisma.$disconnect();
-  }); 
+  });
